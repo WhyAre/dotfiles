@@ -2,17 +2,22 @@
     {
         "name": ["nvim"],
         "local": "nvim",
-        "remote": "$HOMEDRIVE\\$HOMEPATH\\AppData\\Local\\nvim",
+        "remote": "$HOMEDRIVE/$HOMEPATH/AppData/Local/nvim",
         "ignore": ["plugged", "install"]
     },
     {
         "name": ["vim"],
         "local": "vim/vimrc",
-        "remote": "$HOMEDRIVE\\$HOMEPATH\\_vimrc"
+        "remote": "$HOMEDRIVE/$HOMEPATH/_vimrc"
     },
     {
         "name": ["vim"],
         "local": "vim/gvimrc",
-        "remote": "$HOMEDRIVE\\$HOMEPATH\\_gvimrc"
+        "remote": "$HOMEDRIVE/$HOMEPATH/_gvimrc"
+    },
+    {
+        "name": ["git"],
+        "local": "git/config",
+        "remote": "$HOMEDRIVE/$HOMEPATH/.gitconfig"
     }
 ]
