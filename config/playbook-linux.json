@@ -1,0 +1,234 @@
+[
+    {
+        "name": ["x"],
+        "local": "x/xinitrc",
+        "remote": "$HOME/.xinitrc",
+        "install": "install"
+    },
+
+    {
+        "name": ["x"],
+        "local": "x/Xresources",
+        "remote": "$HOME/.Xresources"
+    },
+
+    {
+        "name": ["xbindkeys"],
+        "local": "xbindkeys/xbindkeysrc",
+        "remote": "$HOME/.xbindkeysrc",
+        "install": "install",
+        "disabled": true
+    },
+
+    {
+        "name": ["vmware"],
+        "local": "vmware",
+        "install": "install"
+    },
+
+    {
+        "name": ["lightdm"],
+        "local": "lightdm",
+        "install": "install"
+    },
+
+    {
+        "name": ["packages"],
+        "local": "packages",
+        "install": "install"
+    },
+
+    {
+        "name": ["wallpaper"],
+        "local": "wallpaper",
+        "install": "install"
+    },
+
+    {
+        "name": ["wallpaper"],
+        "local": "wallpaper/$OS",
+        "remote": "$HOME/Pictures/wallpaper"
+    },
+
+    {
+        "name": ["awesome"],
+        "local": "awesome/",
+        "remote": "$HOME/.config/awesome",
+        "install": "install"
+    },
+
+    {
+        "name": ["spectrwm"],
+        "local": "spectrwm/",
+        "remote": "$HOME/.config/spectrwm",
+        "install": "install",
+        "disabled": true
+    },
+
+
+    {
+        "name": ["herbstluft"],
+        "local": "herbstluft/",
+        "remote": "$HOME/.config/herbstluftwm",
+        "install": "install",
+        "disabled": true
+    },
+
+
+    {
+        "name": ["sxhkd"],
+        "local": "sxhkd/",
+        "remote": "$HOME/.config/sxhkd",
+        "install": "install",
+        "disabled": true
+    },
+
+    {
+        "name": ["git", "cli"],
+        "local": "git/config",
+        "remote": "$HOME/.gitconfig",
+        "install": "install"
+    },
+
+    {
+        "name": ["alacritty"],
+        "local": "alacritty/",
+        "remote": "$HOME/.config/alacritty",
+        "install": "install"
+    },
+
+    {
+        "name": ["nvim", "cli"],
+        "local": "nvim",
+        "remote": "$HOME/.config/nvim/",
+        "ignore": ["plugged", "ginit.vim"],
+        "install": "install"
+    },
+
+    {
+        "name": ["rofi"],
+        "local": "rofi",
+        "remote": "$HOME/.config/rofi/",
+        "install": "install"
+    },
+
+    {
+        "name": ["scripts", "cli"],
+        "local": "scripts",
+        "remote": "$HOME/.local/bin",
+        "ignore": ["fuck", "thefuck", "qtile"],
+        "install": "install"
+    },
+
+    {
+        "name": ["dash", "cli"],
+        "local": "dash",
+        "install": "install"
+    },
+
+    {
+        "name": ["starship", "cli"],
+        "local": "starship/starship.toml",
+        "install": "install"
+    },
+
+    {
+        "name": ["zsh", "cli"],
+        "local": "zsh/zshrc",
+        "remote": "$HOME/.zshrc",
+        "install": "install"
+    },
+
+    {
+        "name": ["shell_utils", "cli"],
+        "local": "shell_utils",
+        "remote": "$HOME/.config/shell"
+    },
+
+    {
+        "name": ["tmux", "cli"],
+        "local": "tmux/tmux.conf",
+        "remote": "$HOME/.tmux.conf",
+        "install": "install"
+    },
+
+    {
+        "name": ["vim", "cli"],
+        "local": "vim/vimrc",
+        "remote": "$HOME/.vimrc",
+        "install": "install"
+    },
+
+    {
+        "name": ["qtile"],
+        "local": "qtile",
+        "remote": "$HOME/.config/qtile",
+        "ignore": ["__pycache__"],
+        "disabled": true
+    },
+
+    {
+        "name": ["fish", "cli"],
+        "local": "fish/",
+        "remote": "$HOME/.config/fish",
+        "disabled": true
+    },
+
+    {
+        "name": ["bash", "cli"],
+        "local": "bash/bashrc",
+        "remote": "$HOME/.bashrc",
+        "disabled": true
+    },
+
+    {
+        "name": ["bash", "cli"],
+        "local": "bash/inputrc",
+        "remote": "$HOME/.inputrc",
+        "disabled": true
+    },
+
+    {
+        "name": ["picom"],
+        "local": "picom",
+        "remote": "$HOME/.config/picom/",
+        "disabled": true
+    },
+
+    {
+        "name": ["polybar"],
+        "local": "polybar",
+        "remote": "$HOME/.config/polybar/",
+        "disabled": true
+    },
+
+    {
+        "name": ["kitty"],
+        "local": "kitty",
+        "remote": "$HOME/.config/kitty",
+        "install": "install",
+        "disabled": true
+    },
+
+    {
+        "name": ["zathura"],
+        "local": "zathura",
+        "remote": "$HOME/.config/zathura",
+        "disabled": true
+    },
+
+    {
+        "name": ["i3"],
+        "local": "i3/i3config",
+        "remote": "$HOME/.config/i3/config",
+        "install": "install"
+    },
+
+    {
+        "name": ["i3"],
+        "local": "i3/i3blocksconfig",
+        "remote": "$HOME/.config/i3blocks/config"
+    }
+
+
+]

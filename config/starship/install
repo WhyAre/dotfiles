@@ -1,0 +1,14 @@
+#!/bin/sh
+
+$UPDATE_COMMAND
+if [ "$OS" = "arch" ]; then
+    $INSTALL_COMMAND starship ttf-dejavu noto-fonts-emoji
+else
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+    $INSTALL_COMMAND fonts-dejavu fonts-noto-color-emoji
+fi
+
+if [ -f /.dockerenv ]; then
+    mkdir -p $HOME/.config/
+    cp starship.toml $HOME/.config
+fi

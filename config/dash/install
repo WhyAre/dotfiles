@@ -1,0 +1,8 @@
+#!/bin/sh
+
+$INSTALL_COMMAND dash
+
+# Set as default shell
+dash_full_path=$(cat /etc/shells | grep dash| head -1)
+echo "Setting /bin/sh as $dash_full_path "
+sudo ln -sf $dash_full_path /bin/sh

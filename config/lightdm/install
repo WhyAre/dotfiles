@@ -1,0 +1,12 @@
+#!/bin/sh
+
+$UPDATE_COMMAND
+
+if [ "$OS" = "arch" ]; then
+    $INSTALL_COMMAND lightdm lightdm-gtk-greeter
+else
+    export DEBIAN_FRONTEND=noninteractive
+    $INSTALL_COMMAND -q lightdm lightdm-gtk-greeter
+fi
+
+sudo systemctl enable lightdm

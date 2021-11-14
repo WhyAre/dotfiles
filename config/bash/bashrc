@@ -1,0 +1,13 @@
+#!/bin/bash
+# The purpose of this bashrc is to provide sensible defaults
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Import things
+for f in ~/.config/shell/* ; do source $f; done
+
+shopt -s autocd
+
+# [[ Prompt ]]
+PS1='\w $ '

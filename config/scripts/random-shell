@@ -1,0 +1,15 @@
+#!/bin/bash
+# This script helps me decide which shell to use when I have the feeling to
+# Change to a new piece of shell
+
+MAX_NUM=3
+random_num=$((1 + $RANDOM % $MAX_NUM))
+if [ $random_num -eq 1 ]
+then
+    echo "Fish"
+elif [ $random_num -eq 2 ]
+then
+    echo "Zsh"
+else
+    echo "Bash"
+fi

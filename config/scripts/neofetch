@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# distro=arch
+distro=ArcoLinux  # I quite like this modern logo
+# distro=Artix
+
+/usr/bin/neofetch --ascii_distro $distro "$@"

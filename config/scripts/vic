@@ -1,0 +1,4 @@
+#!/bin/sh
+
+editor=/usr/bin/nvim
+exec $editor "$(which $@)"

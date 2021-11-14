@@ -1,0 +1,4 @@
+#!/bin/sh
+
+$UPDATE_COMMAND
+$INSTALL_COMMAND kitty

@@ -1,0 +1,18 @@
+[
+    {
+        "name": ["nvim"],
+        "local": "nvim",
+        "remote": "$HOMEDRIVE\\$HOMEPATH\\AppData\\Local\\nvim",
+        "ignore": ["plugged", "install"]
+    },
+    {
+        "name": ["vim"],
+        "local": "vim/vimrc",
+        "remote": "$HOMEDRIVE\\$HOMEPATH\\_vimrc"
+    },
+    {
+        "name": ["vim"],
+        "local": "vim/gvimrc",
+        "remote": "$HOMEDRIVE\\$HOMEPATH\\_gvimrc"
+    }
+]

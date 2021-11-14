@@ -1,0 +1,26 @@
+# Essentials
+base-devel
+feh
+
+# Applications
+nemo
+p7zip
+peek
+python
+python-pip
+screenkey
+wget
+wireshark-qt
+tree
+chromium
+qutebrowser
+
+# Rust
+ripgrep
+fd
+
+# Fun
+asciiquarium
+cmatrix
+cowsay
+fortune-mod

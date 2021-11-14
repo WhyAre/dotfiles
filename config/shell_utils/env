@@ -1,0 +1,36 @@
+#!/bin/sh
+
+## Editor ##
+if command -v nvim >/dev/null; then
+    editor=nvim
+else
+    editor=vim
+fi
+
+## Environmental variables ##
+export BROWSER=/usr/bin/firefox
+export EDITOR=$editor
+export VISUAL=$editor
+export TERMINAL=alacritty
+export VIRTUAL_ENV_DISABLE_PROMPT=1  # For when I was using my own custom
+# prompt
+
+if command -v bat > /dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+export BAT_THEME="Dracula"
+
+# Fix weird on character displaying
+export LC_ALL=en_US.UTF-8
+
+add_to_path "$HOME/.local/bin"
+
+cargo_env_file=$HOME/.cargo/env
+if [ -f "$cargo_env_file" ]; then
+    . "$cargo_env_file"
+fi
+
+export SXHKD_SHELL="/bin/sh"
+
+export GTK_THEME=Adwaita:dark

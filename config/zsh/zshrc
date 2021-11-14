@@ -1,0 +1,88 @@
+#!/usr/bin/zsh
+
+. ~/.config/shell/helper_scripts
+. ~/.config/shell/env
+. ~/.config/shell/aliases
+
+## Options ##
+setopt auto_cd
+setopt noflowcontrol
+
+## History things ##
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+
+## Auto complete ##
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
+zmodload -i zsh/complist
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # case insensitive path-completion
+_comp_options+=(globdots)       # Include hidden files.
+
+## History ##
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_STORE
+
+## Syntax highlighting and autosuggestions ##
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
+. ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+. ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## Change definition of a word ##
+WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
+
+## Open in editor ##
+autoload edit-command-line; zle -N edit-command-line
+
+## Prompt ##
+autoload -U colors && colors
+if command -v starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi
+
+## Keybindings ##
+bindkey -e
+KEYTIMEOUT=1
+
+### Menu ###
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+### Vim ###
+bindkey "^[" vi-cmd-mode
+
+### Autosuggestions ###
+bindkey "^f" autosuggest-accept
+bindkey "^[f" forward-word
+
+### Open in Editor ###
+bindkey '^x^e' edit-command-line
+
+### Fix some of the terminal compatibility issues ###
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+
+if command -v thefuck > /dev/null; then
+    eval $(thefuck --alias)
+fi
+
+if [[ $- == *i* ]];then
+    yr-startup-script
+fi
+

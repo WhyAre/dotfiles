@@ -1,0 +1,13 @@
+#!/bin/sh
+
+$UPDATE_COMMAND
+
+if [ "$OS" = "arch" ]; then
+    $INSTALL_COMMAND xorg-server xorg-xinit
+    cp xprofile ~/.xprofile
+else
+    $INSTALL_COMMAND xserver-xorg-core xinit
+    cp xprofile ~/.xsessionrc
+fi
+
+$INSTALL_COMMAND xterm

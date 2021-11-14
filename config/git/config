@@ -1,0 +1,9 @@
+[user]
+        email = laiyr52@gmail.com
+        name = WhyAre
+[init]
+        defaultBranch = main
+[core]
+        editor = vim
+        eol = lf
+        autocrlf = input

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+$UPDATE_COMMAND
+
+if [ "$OS" = "arch" ]; then
+    $INSTALL_COMMAND alacritty
+    exit 0
+    $INSTALL_COMMAND cmake freetype2 fontconfig pkg-config make libxcb \
+        libxkbcommon python
+else
+    $INSTALL_COMMAND cmake pkg-config libfreetype6-dev libfontconfig1-dev \
+        libxcb-xfixes0-dev libxkbcommon-dev python3
+fi
+
+# Install alacritty
+alacritty_git="$HOME/alacritty"
+git clone https://github.com/alacritty/alacritty.git $alacritty_git
+cd $alacritty_git
+cargo install alacritty
+
+# Man page
+sudo mkdir -p /usr/local/share/man/man1
+gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+
+# Cleanup
+rm -rf $alacritty_git

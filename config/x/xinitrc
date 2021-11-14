@@ -1,0 +1,9 @@
+#!/bin/sh
+
+vmware-user
+. ~/.config/shell/env
+xrdb ~/.Xresources
+
+qtile start
+# exec awesome
+# exec startxfce4

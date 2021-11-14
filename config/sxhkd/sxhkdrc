@@ -1,0 +1,18 @@
+alt + shift + Return
+    $TERMINAL
+
+alt + Return
+    $TERMINAL -e tmux new -As0
+
+alt + e
+    thunar
+
+alt + c
+    chromium
+
+alt + d
+    rofi -show drun -show-icons
+
+# make sxhkd reload its configuration files:
+alt + Escape
+    pkill -USR1 -x sxhkd

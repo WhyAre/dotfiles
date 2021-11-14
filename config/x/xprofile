@@ -1,0 +1,7 @@
+#!/bin/sh
+
+vmware-user
+. ~/.config/shell/env
+pgrep sxhkd | sxhkd -m -1 &
+xbindkeys
+xrdb ~/.Xresources

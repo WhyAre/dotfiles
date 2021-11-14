@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Install from package manager
+$UPDATE_COMMAND
+$INSTALL_COMMAND spectrwm
+
+# SPECTRWM_PATH="$HOME/spectrwm"
+# git clone https://github.com/conformal/spectrwm.git $SPECTRWM_PATH
+
+# # Man page
+# cd $SPECTRWM_PATH
+# gzip spectrwm.1
+# sudo cp spectrwm.1.gz /usr/share/man/man1
+
+# # Binary
+# cd $SPECTRWM_PATH/linux
+# make
+# sudo cp spectrwm /usr/bin
+# sudo cp libswmhack.so.0.0 /usr/lib
+
+# # Show in login manager
+# sudo cp spectrwm.desktop /usr/share/xsessions/
+
+# rm -rf $SPECTRWM_PATH

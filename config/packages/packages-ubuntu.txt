@@ -1,0 +1,21 @@
+# Applications
+nemo
+p7zip
+peek
+python3
+python3-pip
+screenkey
+wget
+wireshark-qt
+tree
+chromium-browser
+qutebrowser
+
+# Rust
+ripgrep
+fd-find
+
+# Fun
+cmatrix
+cowsay
+fortune

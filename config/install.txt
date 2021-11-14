@@ -1,0 +1,28 @@
+#!/bin/sh
+# base
+x
+lightdm
+vmware
+
+# Window manager, terminal emulator, multiplexer etc
+alacritty
+i3
+tmux
+
+# Shell dependencies
+starship
+shell_utils
+
+# Shell
+bash
+dash
+zsh
+
+# Other essential software
+git
+nvim
+vim
+rofi
+wallpaper
+packages
+scripts

@@ -1,0 +1,7 @@
+[window]
+command=xtitle -s
+interval=persist
+
+[time]
+command=date +"%d-%b-%Y %I:%M%P "
+interval=5

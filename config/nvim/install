@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# xclip for clipboard copy and paste (using * or + register)
+$UPDATE_COMMAND
+$INSTALL_COMMAND xclip neovim
+
+sh -c 'curl -fLo \
+"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
+--create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+nvim --headless +"PlugInstall --sync | sleep 5" +qa

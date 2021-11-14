@@ -1,0 +1,7 @@
+#!/bin/sh
+
+vmware-user
+. ~/.config/shell/env
+xrdb ~/.Xresources
+
+feh --randomize --bg-fill ~/Pictures/wallpaper/

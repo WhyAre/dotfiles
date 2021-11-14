@@ -1,0 +1,14 @@
+#!/bin/sh
+
+$UPDATE_COMMAND
+
+if [ "$OS" = "arch" ]; then
+    grep -v "^#" packages-arch.txt | $INSTALL_COMMAND -
+else
+    grep -v "^#" "packages-$OS.txt" | xargs $INSTALL_COMMAND
+fi
+
+chmod a+x *.sh
+for f in *.sh; do
+    ./$f
+done

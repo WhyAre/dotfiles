@@ -1,0 +1,29 @@
+XTerm.vt100.locale: false
+XTerm.vt100.utf8: true
+XTerm.termName: xterm-256color
+
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
+xterm*faceName: JetBrains Mono NL
+xterm*faceSize: 14
+
+xterm*foreground: #EAEAEA
+xterm*background: #23252E
+xterm*color0: #1F2229
+xterm*color1: #D41919
+xterm*color2: #5EBDAB
+xterm*color3: #FEA44C
+xterm*color4: #367BF0
+xterm*color5: #9755B3
+xterm*color6: #49AEE6
+xterm*color7: #E6E6E6
+xterm*color8: #198388
+xterm*color9: #EC0101
+xterm*color10: #47D4B9
+xterm*color11: #FF8A18
+xterm*color12: #277FFF
+xterm*color13: #962AC3
+xterm*color14: #05A1F7
+xterm*color15: #FFFFFF

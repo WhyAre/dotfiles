@@ -1,0 +1,10 @@
+#!/bin/sh
+
+$INSTALL_COMMAND zsh git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.config/zsh/zsh-autosuggestions
+
+# Set as default shell
+zsh_full_path=$(cat /etc/shells | grep zsh | head -1)
+echo "Setting $zsh_full_path as interactive shell"
+echo $PASSWORD | chsh -s $zsh_full_path
