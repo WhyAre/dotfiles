@@ -8,12 +8,13 @@ nnoremap <leader>pc :PlugClean<CR>
 nnoremap <leader>pm :MarkdownPreview<CR>
 
 " Own remappings
-nnoremap <silent> <leader>h :set hlsearch!<CR>
+nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>sc :source $MYVIMRC<CR>
-nnoremap <silent> <leader>ec :edit $MYVIMRC<CR>:cd %:p:h<CR>
-nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>ec :edit $MYVIMRC<CR>:cd %:p:h<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>rc yy:<c-r>"<cr>
 vnoremap <leader>rc y:<c-r>"<cr>
+nnoremap <leader>rn :set relativenumber!<CR>
 
 " Fixes weird terminal issues
 tnoremap <s-space> <space>
@@ -24,10 +25,10 @@ tnoremap <c-CR> <CR>
 tnoremap <c-BS> <BS>
 
 " Makes my life more difficult
-noremap <silent> <Up> :res +5<CR>
-noremap <silent> <Down> :res -5<CR>
-noremap <silent> <Right> :vert res +5<CR>
-noremap <silent> <Left> :vert res -5<CR>
+noremap  <Up> :res +5<CR>
+noremap  <Down> :res -5<CR>
+noremap  <Right> :vert res +5<CR>
+noremap  <Left> :vert res -5<CR>
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>

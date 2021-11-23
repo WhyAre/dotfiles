@@ -66,6 +66,7 @@ set smartcase
 set showcmd
 set showmode
 set laststatus=2
+set relativenumber
 
 " Stop vim from creating files
 set noswapfile
@@ -76,7 +77,7 @@ set nowrap
 set scrolloff=5
 set cursorline
 set colorcolumn=80
-set textwidth=72
+set textwidth=79
 set list
 " set listchars=tab:>-,nbsp:␣,trail:•,eol:↲
 set listchars=tab:>-,nbsp:␣,trail:•
@@ -86,7 +87,8 @@ set listchars=tab:>-,nbsp:␣,trail:•
 set nomodeline
 
 lua << EOF
--- require'lspconfig'.pyright.setup{}
+require'lspconfig'.pyright.setup{}
 require'lspconfig'.clangd.setup{}
 require 'nvim-treesitter.install'.compilers = { "gcc" }
 EOF
+

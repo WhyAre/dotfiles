@@ -6,15 +6,22 @@ let g:material_theme_style = 'default'
 let g:edge_enable_italic = 0
 let g:edge_disable_italic_comment = 1
 
+let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+\ }
 " Rotating colorscheme C: Honestly I thought its a simple feature... 
 " but who knows: https://github.com/altercation/solarized/issues/102#issuecomment-18109651. Fucking big issue bodoh
 function SetColors()
     execute 'silent! colorscheme ' . s:colorscheme
 
     if exists('g:plugs["lightline.vim"]')
-        let g:lightline = {
-            \ 'colorscheme': s:lightline_theme
-            \}
+        let g:lightline.colorscheme = s:lightline_theme
         call lightline#init()
         call lightline#colorscheme()
         call lightline#update()
@@ -32,6 +39,9 @@ function! EdgeHighlights() abort
     highlight NonText guifg=#6b6e75
     highlight! SpecialKey guifg=#ffdad1
     highlight! Whitespace guifg=#ffdad1
+
+    highlight! LineNR guifg=#9399a3
+    highlight! CursorLineNR guifg=#9399a3
 
 endfunction
 

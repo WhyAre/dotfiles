@@ -1,4 +1,4 @@
-nnoremap <silent> <leader>t :call TrimWhiteSpace()<CR>
+nnoremap <leader>t :call TrimWhiteSpace()<CR>
 function TrimWhiteSpace()
     let l:save = winsaveview()
     keeppatterns s/\s\+$//e

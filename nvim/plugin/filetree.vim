@@ -9,6 +9,6 @@ let g:netrw_bufsettings = 'noma nomod nobl nowrap ro'
 
 " NERDTree
 " nnoremap <Leader>n :let @/=expand("%:t") <Bar> execute 'Vexplore' expand("%:h") <Bar> normal n<CR>
-nnoremap <silent> <Leader>n :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
