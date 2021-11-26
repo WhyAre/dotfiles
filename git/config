@@ -1,11 +1,27 @@
+[http]
+    sslVerify = false
 [user]
-    email = laiyr52@gmail.com
     name = WhyAre
+    email = laiyr52@gmail.com
 [init]
     defaultBranch = main
 [core]
-    editor = vim
+    editor = nvim
     eol = lf
     autocrlf = input
 [credential]
     helper = manager-core
+[alias]
+    s = status
+    sh = show
+    b = branch
+    d = diff
+    f = fetch origin
+    bd = branch -D
+    p = push origin HEAD
+    c = commit
+    ca = commit --amend
+    cane = commit --amend --no-edit
+    co = checkout
+    cob = checkout -b
+    l = log --all --decorate --abbrev-commit --graph
