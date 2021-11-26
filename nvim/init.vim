@@ -9,7 +9,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 
 " ## Application specific plugins ##
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'iamcco/markdown-preview.nvim',
             \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -67,6 +66,8 @@ set showcmd
 set showmode
 set laststatus=2
 set relativenumber
+set fileformat=unix
+set fileformats=unix,dos
 
 " Stop vim from creating files
 set noswapfile
