@@ -12,16 +12,18 @@
 [credential]
     helper = manager-core
 [alias]
-    s = status
-    sh = show
+    a = add
     b = branch
-    d = diff
-    f = fetch origin
     bd = branch -D
-    p = push origin HEAD
     c = commit
     ca = commit --amend
     cane = commit --amend --no-edit
     co = checkout
     cob = checkout -b
+    d = diff
+    ds = diff --staged
+    f = fetch origin
     l = log --all --decorate --abbrev-commit --graph
+    p = push origin HEAD
+    s = status
+    sh = show
