@@ -7,23 +7,24 @@ if(Get-Command starship 2>$NUL){
 Set-Alias l Get-ChildItem
 if(Get-Command nvim 2>$NUL){
     Set-Alias v nvim
+
+    $Env:EDITOR="nvim"
+    $Env:VISUAL="nvim"
 }
 if(Get-Command git 2>$NUL){
     Set-Alias g git
 }
 
 ## Choco
-Function choco_ins {choco install -y}
-Function choco_unins {choco uninstall -y}
-Function choco_ups($package) {choco update -y $package}
+Function choco_ups { choco update -y @Args }
+Function choco_ins { choco install -y @Args }
+Function choco_unins { choco uninstall -y @Args }
 if(Get-Command choco 2>$NUL){
     Set-Alias ins choco_ins
     Set-Alias unins choco_unins
     Set-Alias ups choco_ups
 }
 
-# Rebindings
-Set-PSReadLineOption -editmode emacs
-
-Set-PSReadLineKeyHandler -Chord Ctrl+[ -Function ViCommandMode
-
+# Vi remappings
+Set-PSReadLineOption -editmode vi
+Set-PSReadLineKeyHandler -Chord "Ctrl+[" -Function ViCommandMode

@@ -26,8 +26,18 @@
         "remote": "$HOMEDRIVE/$HOMEPATH/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
     },
     {
+        "name": ["pwsh"],
+        "local": "pwsh/profile.ps1",
+        "remote": "$HOMEDRIVE/$HOMEPATH/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+    },
+    {
         "name": ["wt"],
         "local": "windows_terminal/settings.json",
         "remote": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+    },
+    {
+        "name": ["starship"],
+        "local": "starship/starship-windows.toml",
+        "remote": "$HOMEDRIVE/$HOMEPATH/.config/starship.toml"
     }
 ]
