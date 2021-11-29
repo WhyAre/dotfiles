@@ -19,5 +19,15 @@
         "name": ["git"],
         "local": "git/config",
         "remote": "$HOMEDRIVE/$HOMEPATH/.gitconfig"
+    },
+    {
+        "name": ["powershell"],
+        "local": "powershell/profile.ps1",
+        "remote": "$HOMEDRIVE/$HOMEPATH/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
+    },
+    {
+        "name": ["wt"],
+        "local": "wt/settings.json",
+        "remote": "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
     }
 ]
