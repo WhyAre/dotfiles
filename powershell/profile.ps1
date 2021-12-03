@@ -16,7 +16,7 @@ if(Get-Command git 2>$NUL){
 }
 
 ## Choco
-Function choco_ups { choco update -y @Args }
+Function choco_ups { choco upgrade -y @Args }
 Function choco_ins { choco install -y @Args }
 Function choco_unins { choco uninstall -y @Args }
 if(Get-Command choco 2>$NUL){

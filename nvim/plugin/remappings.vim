@@ -14,7 +14,7 @@ nnoremap <leader>ec :edit $MYVIMRC<CR>:cd %:p:h<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>rc yy:<c-r>"<cr>
 vnoremap <leader>rc y:<c-r>"<cr>
-nnoremap <leader>rn :set relativenumber!<CR>
+nnoremap <leader>rn :set relativenumber! number!<CR>
 
 " Fixes weird terminal issues
 tnoremap <s-space> <space>

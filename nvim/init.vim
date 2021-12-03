@@ -66,6 +66,7 @@ set showcmd
 set showmode
 set laststatus=2
 set relativenumber
+set number
 set fileformat=unix
 set fileformats=unix,dos
 
@@ -86,6 +87,8 @@ set listchars=tab:>-,nbsp:␣,trail:•
 " Disable for security reasons.
 " https://github.com/numirias/security/blob/cf4f74e0c6c6e4bbd6b59823aa1b85fa913e26eb/doc/2019-06-04_ace-vim-neovim.md#readme
 set nomodeline
+
+set clipboard^=unnamed,unnamedplus
 
 lua << EOF
 require'lspconfig'.pyright.setup{}

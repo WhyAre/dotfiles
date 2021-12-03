@@ -47,3 +47,5 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+e" -Function EndOfLine
 Set-PSReadLineKeyHandler -Chord "Ctrl+k" -Function KillLine
 Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function UnixWordRubout
 Set-PSReadLineKeyHandler -Chord "Ctrl+u" -Function BackwardKillLine
+
+Import-Module posh-git
