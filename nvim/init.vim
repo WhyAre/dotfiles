@@ -4,7 +4,6 @@ call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 
@@ -18,11 +17,12 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'itchyny/lightline.vim'
 
-if has('nvim-0.5')
+if has('nvim-0.6')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'numToStr/Comment.nvim'
 endif
 
 Plug 'preservim/nerdtree'
@@ -94,5 +94,7 @@ lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.clangd.setup{}
 require 'nvim-treesitter.install'.compilers = { "gcc" }
+
+require('Comment').setup()
 EOF
 
