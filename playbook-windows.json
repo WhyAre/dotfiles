@@ -21,13 +21,18 @@
         "remote": "$HOMEDRIVE/$HOMEPATH/.gitconfig"
     },
     {
-        "name": ["powershell"],
+        "name": ["powershell", "pwsh"],
         "local": "powershell/profile.ps1",
+        "remote": "$HOMEDRIVE/$HOMEPATH/.config/powershell/profile.ps1"
+    },
+    {
+        "name": ["powershell"],
+        "local": "powershell/powershell.ps1",
         "remote": "$HOMEDRIVE/$HOMEPATH/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
     },
     {
         "name": ["pwsh"],
-        "local": "pwsh/profile.ps1",
+        "local": "powershell/pwsh.ps1",
         "remote": "$HOMEDRIVE/$HOMEPATH/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
     },
     {

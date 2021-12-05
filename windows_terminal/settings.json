@@ -15,6 +15,10 @@
             "keys": "ctrl+shift+v"
         },
         {
+            "command": "duplicateTab",
+            "keys": "ctrl+shift+d"
+        },
+        {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
@@ -28,24 +32,38 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "disableAnimations": true,
+    "focusFollowMouse": true,
     "profiles": 
     {
         "defaults": 
         {
+            "bellStyle": "none",
+            "colorScheme": "One Half Dark",
+            "cursorShape": "filledBox",
+            "experimental.retroTerminalEffect": false,
+            "font": 
+            {
+                "face": "JetBrains Mono NL",
+                "size": 11
+            },
             "padding": "0",
             "scrollbarState": "hidden",
             "startingDirectory": ".",
-            "cursorShape": "filledBox",
-            "font":
-            {
-                "face": "JetBrains Mono NL"
-            }
+            "suppressApplicationTitle": false
         },
         "list": 
         [
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
             {
                 "commandline": "powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -275,5 +293,9 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "showTerminalTitleInTitlebar": false,
+    "snapToGridOnResize": false,
+    "tabSwitcherMode": "disabled",
+    "windowingBehavior": "useAnyExisting"
 }
