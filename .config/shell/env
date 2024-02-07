@@ -1,0 +1,52 @@
+#!/bin/sh
+
+## Path ##
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.bin"
+add_to_path "$HOME/.cargo/bin"
+add_to_path "/opt"
+add_to_path "/usr/local/go/bin"
+add_to_path "$HOME/go/bin"
+
+## Editor ##
+if command -v nvim >/dev/null; then
+    editor=nvim
+else
+    editor=vim
+fi
+
+## Environmental variables ##
+export HOSTNAME=$(cat /etc/hostname)
+# export BROWSER=/usr/bin/firefox
+export EDITOR=$editor
+export VISUAL=$editor
+export TERMINAL=kitty
+export VIRTUAL_ENV_DISABLE_PROMPT=1  # For when I was using my own custom
+
+export LESS="RX"  # R for color, X for no clear screen after quitting
+
+# prompt
+if command -v bat > /dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
+fi
+
+# Fix weird on character displaying
+export LC_ALL=en_US.UTF-8
+
+cargo_env_file=$HOME/.cargo/env
+if [ -f "$cargo_env_file" ]; then
+    . "$cargo_env_file"
+fi
+
+export SXHKD_SHELL="/bin/sh"
+
+export GTK_THEME=Adwaita:light
+
+# Docker things
+if command -v docker >/dev/null; then
+    export DOCKER_BUILDKIT=1
+    # export BUILDKIT_PROGRESS=plain
+fi
+
+

@@ -1,0 +1,72 @@
+[include]
+    path = .config/git/user
+[http]
+    sslVerify = false
+[init]
+    defaultBranch = main
+[core]
+    editor = nvim
+    preloadindex = true
+    fscache = true
+    pager = delta
+[credential]
+    helper = store
+[alias]
+    a = add
+    ap = add --patch
+    ai = add --interactive
+    b = branch --verbose --verbose
+    br = b --remote
+    ba = b --all
+    bd = branch --delete --force
+    c = commit
+    ca = commit --amend
+    cane = commit --amend --no-edit
+    co = checkout
+    cob = checkout -b
+    cs = commit -S
+    d = diff
+    ds = diff --staged
+    f = fetch --prune --all --tags --force
+    g = !git gui
+    l = log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    la = l --all
+    lf = l --pretty=fuller
+    lfa = lf --all
+    pl = pull
+    p = push
+    poh = push origin HEAD
+    r = remote --verbose
+    sh = show
+    sm = submodule
+    smu = sm update --init --recursive
+    smur = smu --remote
+    st = status -sb
+    sti = st --ignored
+    wt = worktree
+[fetch]
+    prune = true
+[rerere]
+    enabled = true
+[pull]
+    ff = only
+[push]
+    default = upstream
+    autoSetupRemote = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    diff-so-fancy = true
+    light = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[rebase]
+    autosquash = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

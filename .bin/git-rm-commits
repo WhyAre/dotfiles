@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Remove all the commits and make a commit called "Initial commit"
+orphan_branch_name=testingbranchname
+commit_msg="Initial commit"
+main_branch_name=main
+git checkout --orphan "$orphan_branch_name"
+git add -A
+if [ -n "gpg --list-secret-keys)" ]; then
+    git commit -S -m "$commit_msg"
+else
+    git commit -m "$commit_msg"
+fi
+git branch -D "$main_branch_name"
+git branch -m "$main_branch_name"
+git push -f origin "$main_branch_name"

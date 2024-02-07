@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+import random
+import shutil
+import subprocess
+
+FORTUNE_CMD="fortune"
+COWSAY_CMD="cowsay"
+
+has_cowsay = shutil.which(COWSAY_CMD)
+
+def cowsay(msg):
+    animals = subprocess.check_output(f"{COWSAY_CMD} -l | tail +2", shell=True) \
+        .decode() \
+        .split()[1:]
+    chosen_animal = random.choice(animals)
+
+    return subprocess.check_output([COWSAY_CMD, "-f", chosen_animal, msg]).decode()
+
+
+def display_msg(msg):
+    if has_cowsay:
+        msg = cowsay(msg)
+    print(msg)
+
+quotes = [
+    "UNIX is simple and coherent, but it takes a genius (or at any rate, a programmer) to understand and appreciate its simplicity.",
+    "Unix is user-friendly - it's just choosy about who its friends are.",
+    "Never let a computer know you're in a hurry.",
+    "Why programmers like UNIX: unzip, strip, touch, finger, grep, mount, fsck, more, yes, fsck, fsck, fsck, umount, sleep.",
+    ".NET is called .NET so that it wouldn't show up in a UNIX directory listing.",
+    "There's no place like 127.0.0.1.",
+    "There is an easy way and a hard way. The hard part is finding the easy way.",
+    "There is no Ctrl-Z in life.",
+    "Whitespace is never white.",
+    "The more I C, the less I see.",
+    "I'm not anti-social; I'm just not user friendly",
+    "Windows isn't a virus, viruses do something.",
+    "Difference between a virus and windows? Viruses rarely fail.",
+    "Like car accidents, most hardware problems are due to driver error.",
+    "If you give someone a program, you will frustrate them for a day; if you teach them how to program, you will frustrate them for a lifetime.",
+    "Hacking is like sex. You get in, you get out, and hope that you didn't leave something that can be traced back to you."
+]
+
+has_fortune = shutil.which(FORTUNE_CMD)
+rand_num = random.randint(0,3)
+
+if not has_fortune or rand_num < 1:
+    msg = random.choice(quotes)
+else:
+    msg = subprocess.check_output([FORTUNE_CMD]).decode()
+
+display_msg(msg)
+

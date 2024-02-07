@@ -1,0 +1,27 @@
+#!/bin/sh
+
+printf "Name: "
+read name
+
+printf "Email: "
+read email
+
+filename=foo
+cat >$filename <<EOF
+     %echo Generating a basic OpenPGP key
+     Key-Type: RSA
+     Key-Length: 4096
+     Subkey-Type: RSA
+     Subkey-Length: 4096
+     Name-Real: $name
+     Name-Email: $email
+     Expire-Date: 0
+     # Do a commit here, so that we can later print "done" :-)
+     %commit
+     %echo done
+EOF
+gpg --full-generate-key --batch $filename
+keyid=$(gpg --with-colons --list-secret-keys | grep -F -B 2 "$name <$email>" | awk -F: '$1 == "fpr" {print $10;}')
+echo $keyid
+gpg --export --armor $keyid
+rm -rf $filename

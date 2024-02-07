@@ -1,0 +1,63 @@
+#!/bin/sh
+
+SCRIPTPATH="$HOME/.config/shell"
+. "$SCRIPTPATH/docker.sh"
+
+## Editor ##
+alias v="$EDITOR"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias V="sudo $EDITOR"
+alias zshrc="$EDITOR ~/.zshrc" # Quickly open zshrc
+alias bashrc="$EDITOR ~/.bashrc" # Quickly open bashrc
+
+## Built-in commands ##
+alias ss="sudo systemctl"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias cp="cp -iv"
+alias grep="grep --color=auto"
+alias ip="ip --color=auto"
+alias c="clear"
+
+## Package management ##
+alias pls="sudo"
+if command -v pacman > /dev/null; then
+    cmd="sudo pacman"
+    if command -v paru > /dev/null; then
+        alias yay=paru
+        cmd=paru
+    fi
+    alias ups="$cmd -Syu"
+    alias ins="$cmd -S --noconfirm --needed"
+    alias unins="$cmd -Rns --noconfirm"
+elif command -v apt > /dev/null; then
+    alias ups="pls apt update"
+    alias ins="pls apt install -y"
+    alias unins="pls apt purge --auto-remove -y"
+elif command -v dnf > /dev/null; then
+    alias ups="pls dnf update"
+    alias ins="pls dnf install -y"
+    alias unins="pls dnf remove -y"
+elif command -v zypper > /dev/null; then
+    alias ins="pls zypper install -y"
+fi
+
+## Git ##
+alias g="git"
+
+## Tmux ##
+alias tmux="tmux -u"  # Allow unicode characters
+
+## exa ##
+ls_flags="--color=auto --classify --group-directories-first"
+if command -v eza > /dev/null; then
+    alias ls="eza ${ls_flags} -g --sort=age"
+else 
+    alias ls="ls ${ls_flags} -h"
+fi
+
+## Bat ##
+if command -v bat > /dev/null; then
+    alias cat="bat -p"
+fi
