@@ -29,12 +29,13 @@ import random
 import subprocess
 
 from libqtile import bar, hook, layout
+
 try:
     from qtile_extras import widget
 except ImportError:
     from libqtile import widget
 
-from libqtile.config import Click, Drag, Group, Key, Match, Rule, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
 # from libqtile.utils import guess_terminal
@@ -53,10 +54,12 @@ def get_random_wallpaper(wallpaper_dir="~/Pictures/wallpaper"):
 def autostart():
     subprocess.Popen("nm-applet")
     # subprocess.Popen("blueman-applet")
-    # subprocess.Popen(["light-locker", "--lock-on-suspend", "--lock-on-lid"])
+    subprocess.Popen(["xss-lock", "xsecurelock"])
+    subprocess.Popen(["picom"])
+    subprocess.Popen("/usr/libexec/polkit-gnome-authentication-agent-1")
 
 
-primary_colour = "#1da6f5"
+primary_colour = "#53baf5"
 
 
 def primary(input: str):
@@ -69,7 +72,7 @@ terminal = "kitty"
 browser = "flatpak run com.brave.Browser"
 screenshot = "flameshot gui"
 file_browser = "nemo"
-lockscreen = "dm-tool switch-to-greeter"
+lockscreen = "xsecurelock"
 window_switcher = "rofi -show window"
 
 keys = [
@@ -80,8 +83,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(),
-        desc="Move window focus to other window"),
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key(
@@ -126,7 +128,8 @@ keys = [
         desc="Grow window up",
     ),
     Key([mod], "s", lazy.window.toggle_floating(), desc="Toggle floating"),
-    Key([mod], "f", lazy.window.toggle_maximize(), desc="Toggle maximize"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    # Key([mod], "f", lazy.window.toggle_maximize(), desc="Toggle maximize"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -147,7 +150,8 @@ keys = [
     Key([mod, "control"], "f", lazy.spawn(browser), desc="Launch brave"),
     Key([mod, "shift"], "s", lazy.spawn(screenshot), desc="Launch flameshot"),
     Key([mod], "e", lazy.spawn(file_browser), desc="Launch file manager"),
-    Key([mod, "control"], "l", lazy.spawn(lockscreen), desc="Launch lockscreen"),
+    Key([mod, "shift", "control"], "l", lazy.spawn(lockscreen), desc="Launch lockscreen"),
+    Key([mod, "shift", "control"], "q", lazy.spawn("rofi -show power-menu -modi power-menu:rofi-power-menu"), desc="Launch lockscreen"),
     Key(
         [mod],
         "d",
@@ -191,9 +195,11 @@ keys = [
 groups = [
     Group("1", matches=Match(role="browser")),
     Group("2"),
-    Group("3", matches=Match(wm_class="morgen"), layout='max'),
+    Group("3"),
     Group("4", matches=Match(wm_class="obsidian")),
-    Group("5"),
+    Group(
+        "5", matches=[Match(wm_class="morgen"), Match(wm_class="Todoist")], layout="max"
+    ),
     Group("6"),
     Group("7"),
     Group("8"),
@@ -216,8 +222,7 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name),
-                desc="Switch to & move focused window to group {}".format(
-                    i.name),
+                desc="Switch to & move focused window to group {}".format(i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -228,9 +233,9 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus="#07b9f5", border_width=2),
+    layout.Max(),
     layout.Floating(),
     # layout.MonadTall(single_border_width=0),
-    layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -263,7 +268,7 @@ screens = [
                 widget.GroupBox(
                     highlight_method="line",
                     this_current_screen_border=primary_colour,
-                    borderwidth=5,
+                    borderwidth=3,
                     hide_unused=True,
                 ),
                 # widget.Prompt(),
@@ -276,9 +281,7 @@ screens = [
                 #     },
                 #     name_transform=lambda name: name.upper(),
                 # ),
-
                 widget.StatusNotifier(),  # Backup when qtile extras isn't installed
-
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 widget.Systray(),
                 widget.Sep(padding=sep_padding),
@@ -286,11 +289,9 @@ screens = [
                     scale=0.7,
                 ),
                 widget.Sep(padding=sep_padding),
-                widget.Memory(fmt=f"{primary('RAM')}  {{}}",
-                              format="{MemPercent}%"),
+                widget.Memory(fmt=f"{primary('RAM')}  {{}}", format="{MemPercent}%"),
                 widget.Sep(padding=sep_padding),
-                widget.CPU(fmt=f"{primary('CPU')}  {{}}",
-                           format="{load_percent}%"),
+                widget.CPU(fmt=f"{primary('CPU')}  {{}}", format="{load_percent}%"),
                 widget.Sep(padding=sep_padding),
                 widget.DF(
                     fmt=f"{primary('/')}  {{}}",
@@ -326,8 +327,8 @@ screens = [
                     format="{essid}",
                 ),
                 widget.Sep(padding=sep_padding),
-                widget.Clock(foreground=primary_colour,
-                             format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                # widget.Notify(),
             ],
             24,
         ),
