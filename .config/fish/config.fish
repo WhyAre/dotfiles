@@ -8,16 +8,18 @@ if type -q bat
     set -gx MANROFFOPT "-c"
 end
 
-if type -q exa
-    alias ls='exa -g --group-directories-first'
-else 
-    alias ls='ls --color=auto -hF --group-directories-first'
+set -l ls_flags  "--color=auto --classify --group-directories-first"
+if type -q eza
+    alias ls="eza $ls_flags -g --sort=age"
+else
+    alias ls="ls $ls_flags -h"
 end
+
 # [[ Editor ]]
 if type -q nvim
-    set -g editor nvim
+    set -f editor nvim
 else
-    set -g editor vim
+    set -f editor vim
 end
 alias v=$editor
 alias vi=$editor
@@ -25,9 +27,9 @@ alias vim=$editor
 alias V="sudo $editor"
 
 ## Abbreviations ##
-abbr -ag zshrc "$editor ~/.zshrc" # Quickly open zshrc
-abbr -ag bashrc "$editor ~/.bashrc" # Quickly open bashrc
-abbr -ag ss "sudo systemctl"
+abbr zshrc "$editor ~/.zshrc" # Quickly open zshrc
+abbr bashrc "$editor ~/.bashrc" # Quickly open bashrc
+abbr ss "sudo systemctl"
 
 alias pls="sudo"
 if type -q pacman
@@ -38,27 +40,32 @@ if type -q pacman
     else
         alias yay="sudo pacman"
     end
-    abbr -ag ups "yay -Syy"
-    abbr -ag ins "yay -S --noconfirm --needed"
-    abbr -ag unins "yay -Rns --noconfirm"
+    abbr ups "yay -Syy"
+    abbr ins "yay -S --noconfirm --needed"
+    abbr unins "yay -Rns --noconfirm"
 else if type -q apt
-    abbr -ag ups "pls apt update"
-    abbr -ag ins "pls apt install -y"
-    abbr -ag unins "pls apt purge --auto-remove -y"
+    abbr ups "pls apt update"
+    abbr ins "pls apt install -y"
+    abbr unins "pls apt purge --auto-remove -y"
+else if type -q zypper
+    abbr up "pls zypper upgrade"
+    abbr dup "pls zypper dist-upgrade"
+    abbr ins "pls zypper install -y"
+    abbr unins "pls zypper remove -u"
 end
 
 # Clear
-abbr -ag c "clear"
+abbr c "clear"
 
 # Applications
-abbr -ag g "git"
-abbr -ag d "docker"
+abbr g "git"
+abbr d "docker"
 
 # Aliases
-abbr -ag l 'ls'
-abbr -ag ll 'ls -l'
-abbr -ag la 'ls -a'
-abbr -ag lla 'ls -la'
+abbr l 'ls'
+abbr ll 'ls -l'
+abbr la 'ls -a'
+abbr lla 'ls -la'
 
 alias mv "mv -iv"
 alias rm "rm -iv"
@@ -77,13 +84,8 @@ set -gx VISUAL (command -v $editor)
 
 set -gx LESS "RX"
 
-if status is-interactive
-    set -l path_to_add ~/.local/bin
-    contains $path_to_add $PATH; or set -px PATH $path_to_add
-
-    set -l path_to_add ~/go/bin
-    contains $path_to_add $PATH; or set -px PATH $path_to_add
-end
+fish_add_path ~/.local/bin
+fish_add_path ~/go/bin
 
 # Starship
 if type -q starship
@@ -92,5 +94,11 @@ end
 
 # The Fuck
 if type -q thefuck
-    thefuck --alias | source 
+    thefuck --alias | source
+end
+
+# Zoxide
+if type -q zoxide
+    zoxide init fish | source
+    alias cd=z
 end
