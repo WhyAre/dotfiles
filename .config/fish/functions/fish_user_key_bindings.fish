@@ -23,6 +23,8 @@ function fish_user_key_bindings
     bind -M insert ! bind_bang
     bind -M insert '$' bind_dollar
 
+    bind -M insert \cw backward-kill-bigword
+    bind -M insert \cr _fzf_search_history
     # Makes vim mode include all the emacs bindings
     # https://fishshell.com/docs/current/interactive.html?highlight=vim#vi-mode-commands
     fish_default_key_bindings -M insert
