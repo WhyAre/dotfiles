@@ -155,6 +155,17 @@ local plugins = {
         end
     },
 
+    {
+        'stevearc/conform.nvim',
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    python = { "isort", "black" },
+                },
+            })
+        end,
+    },
+
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
@@ -278,4 +289,3 @@ local plugins = {
 }
 
 require("lazy").setup(plugins)
-
