@@ -1,5 +1,5 @@
 set completion-ignore-case on
-set completion-prefix-display-length 2
+# set completion-prefix-display-length 2
 set completion-map-case on
 set show-all-if-unmodified on
 
