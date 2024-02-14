@@ -84,8 +84,8 @@ set -gx VISUAL (command -v $editor)
 
 set -gx LESS "RX"
 
-fish_add_path ~/.local/bin
-fish_add_path ~/go/bin
+fish_add_path -g ~/.local/bin
+fish_add_path -g ~/go/bin
 
 # Starship
 if type -q starship
