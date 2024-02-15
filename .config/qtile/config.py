@@ -151,7 +151,7 @@ keys = [
     Key([mod, "shift"], "s", lazy.spawn(screenshot), desc="Launch flameshot"),
     Key([mod], "e", lazy.spawn(file_browser), desc="Launch file manager"),
     Key([mod, "shift", "control"], "l", lazy.spawn(lockscreen), desc="Launch lockscreen"),
-    Key([mod, "shift", "control"], "q", lazy.spawn("rofi -show power-menu -modi power-menu:rofi-power-menu"), desc="Launch lockscreen"),
+    Key([mod, "shift", "control"], "q", lazy.spawn("rofi -show power-menu -modi power-menu:'rofi-power-menu --no-symbols'"), desc="Launch lockscreen"),
     Key(
         [mod],
         "d",
