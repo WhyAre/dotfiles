@@ -280,7 +280,18 @@ local plugins = {
 
     {"HakonHarnes/img-clip.nvim",
         event = "BufEnter",
-        opts={},
+        opts={
+            filetypes = {
+                typst = {
+                    template = [[
+#figure(
+  rect(image("$FILE_PATH", width: 80%)),
+  caption: [$LABEL],
+) <fig-$LABEL>
+    ]],
+                },
+            },
+        },
         keys = {
             -- suggested keymap
             { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
