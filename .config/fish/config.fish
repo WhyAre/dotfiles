@@ -84,6 +84,7 @@ set -gx VISUAL (command -v $editor)
 
 set -gx LESS "RX"
 
+fish_add_path -g ~/.bin
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/go/bin
 
