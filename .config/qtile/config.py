@@ -69,7 +69,7 @@ def primary(input: str):
 # Configuration
 mod = "mod4"
 terminal = "kitty"
-browser = "flatpak run com.brave.Browser"
+browser = "vivaldi"
 screenshot = "flameshot gui"
 file_browser = "nemo"
 lockscreen = "xsecurelock"
