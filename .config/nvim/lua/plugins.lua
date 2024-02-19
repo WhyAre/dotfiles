@@ -278,14 +278,14 @@ local plugins = {
         ft = 'typst',
     },
 
-    {"HakonHarnes/img-clip.nvim",
+    {"whyare/img-clip.nvim",
         event = "BufEnter",
         opts={
             filetypes = {
                 typst = {
                     template = [[
 #figure(
-  rect(image("$FILE_PATH", width: 80%)),
+  rect(image("$FILE_PATH", width: 80%), inset: 0pt),
   caption: [$LABEL],
 ) <fig-$LABEL>
     ]],
