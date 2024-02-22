@@ -1,12 +1,12 @@
 #!/bin/bash
 # The purpose of this bashrc is to provide sensible defaults
 
+. ~/.config/shell/helper_scripts
+. ~/.config/shell/env
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # Import things
-. ~/.config/shell/helper_scripts
-. ~/.config/shell/env
 . ~/.config/shell/aliases
 
 # Configuration
