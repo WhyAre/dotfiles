@@ -12,8 +12,6 @@
 # Configuration
 shopt -s histverify
 
-if command -v pfetch &>/dev/null; then
-    pfetch
 # FZF Key Bindings
 if [ -f "/usr/share/fzf/shell/key-bindings.bash"  ]; then
     source /usr/share/fzf/shell/key-bindings.bash
