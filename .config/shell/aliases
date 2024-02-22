@@ -1,8 +1,5 @@
 #!/bin/sh
 
-SCRIPTPATH="$HOME/.config/shell"
-. "$SCRIPTPATH/docker.sh"
-
 ## Editor ##
 alias v="$EDITOR"
 alias vi="$EDITOR"
