@@ -28,4 +28,8 @@ else
     PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)" 2>/dev/null)\n\$ '
 fi
 
+## Zoxide
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init bash)"
+    alias cd=z
 fi
