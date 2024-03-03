@@ -235,6 +235,7 @@ local plugins = {
         end
     },
 
+    -- Git
     {
         'lewis6991/gitsigns.nvim',
         event = "VeryLazy",
@@ -247,6 +248,7 @@ local plugins = {
             }
         end
     },
+    {'sindrets/diffview.nvim'},
 
     {
         'j-hui/fidget.nvim',
@@ -296,6 +298,13 @@ local plugins = {
             -- suggested keymap
             { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
         },
+    },
+
+    {
+        'folke/todo-comments.nvim', 
+        event = 'VimEnter', 
+        dependencies = { 'nvim-lua/plenary.nvim' }, 
+        opts = { signs = false } 
     },
 }
 
