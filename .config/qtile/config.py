@@ -251,12 +251,12 @@ layouts = [
 
 widget_defaults = dict(
     font="sans",
-    fontsize=14,
+    fontsize=12,
     padding=0,
 )
 extension_defaults = widget_defaults.copy()
 
-sep_padding = 15
+sep_padding = 10
 wifi_interface = "wlo1"
 
 screens = [
