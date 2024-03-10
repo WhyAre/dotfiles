@@ -23,7 +23,10 @@ export VISUAL=$editor
 export TERMINAL=kitty
 export VIRTUAL_ENV_DISABLE_PROMPT=1  # For when I was using my own custom
 
-export LESS="RX"  # R for color, X for no clear screen after quitting
+# R - color
+# X - don't clear screen after quitting
+# F - don't page if fits in one screen
+export LESS="FRX"
 
 # prompt
 if command -v bat > /dev/null; then
