@@ -1,7 +1,5 @@
 [include]
     path = .config/git/user
-[http]
-    sslVerify = false
 [init]
     defaultBranch = main
 [core]
