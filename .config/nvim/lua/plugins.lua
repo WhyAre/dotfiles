@@ -252,11 +252,15 @@ local plugins = {
             }
         end
     },
-    {'sindrets/diffview.nvim'},
+    {
+        'sindrets/diffview.nvim',
+        event = 'VeryLazy',
+    },
 
     {
         'j-hui/fidget.nvim',
         -- https://github.com/j-hui/fidget.nvim#installation
+        event = 'VeryLazy',
         config = function()
             require("fidget").setup()
         end
@@ -305,10 +309,10 @@ local plugins = {
     },
 
     {
-        'folke/todo-comments.nvim', 
-        event = 'VimEnter', 
-        dependencies = { 'nvim-lua/plenary.nvim' }, 
-        opts = { signs = false } 
+        'folke/todo-comments.nvim',
+        event = 'VeryLazy',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = { signs = false }
     },
 }
 
