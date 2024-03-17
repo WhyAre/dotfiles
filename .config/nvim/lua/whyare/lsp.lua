@@ -22,7 +22,7 @@ local on_attach = function(client)
     vim.keymap.set("n", "<leader>ld", require "telescope.builtin".diagnostics, { desc = 'Diagnostics' })
     vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float, { desc = 'Diagnostics' })
     vim.keymap.set("n", "<leader>lf", function()
-        require("conform").format({lsp_fallback=true})
+        require("conform").format({ lsp_fallback = true })
     end, { desc = 'Format' })
     vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = 'Rename' })
     vim.keymap.set("n", '<c-]>', require "telescope.builtin".lsp_definitions,

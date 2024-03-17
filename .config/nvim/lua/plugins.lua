@@ -288,9 +288,10 @@ local plugins = {
         ft = 'typst',
     },
 
-    {"whyare/img-clip.nvim",
+    {
+        "whyare/img-clip.nvim",
         event = "BufEnter",
-        opts={
+        opts = {
             filetypes = {
                 typst = {
                     template = [[
