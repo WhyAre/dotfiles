@@ -1,6 +1,6 @@
 # Adapted from: https://github.com/vEnhance/dotfiles/blob/main/py-scripts/stomp.py
-
 import argparse
+import platform
 import subprocess
 import sys
 from pathlib import Path
@@ -83,10 +83,10 @@ else:
     raise ValueError(f"Invalid program type {PROGRAM_TYPE}")
 
 any_failed = False
-for input_file_path in sorted(Path("tests").glob("*.input")):
+for input_file_path in sorted(Path("tests").glob("*.in")):
     stdout_path = input_file_path.with_suffix(".stdout")
     stderr_path = input_file_path.with_suffix(".stderr")
-    answer_path = input_file_path.with_suffix(".answer")
+    answer_path = input_file_path.with_suffix(".out")
 
     print(f"{TERM_COLOR['BOLD_CYAN']}{input_file_path}{TERM_COLOR['RESET']}")
     with (
@@ -96,7 +96,7 @@ for input_file_path in sorted(Path("tests").glob("*.input")):
     ):
         if PROGRAM_TYPE == "C++":
             process = subprocess.run(
-                ["./a.out"],
+                ["./a.out" if platform.system() != "Windows" else ".\\a.exe"],
                 stdin=input_file,
                 stdout=stdout_file,
                 stderr=stderr_file,
@@ -152,4 +152,5 @@ for input_file_path in sorted(Path("tests").glob("*.input")):
             any_failed = True
     if opts.stdout or opts.stderr:
         print("-" * 60)
+
 
