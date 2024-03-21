@@ -58,3 +58,5 @@ fi
 if command -v bat > /dev/null; then
     alias cat="bat -p"
 fi
+
+alias stomp="python3 ~/.bin/stomp.py"
