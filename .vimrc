@@ -4,7 +4,6 @@ filetype plugin indent on
 set mouse=a
 set backspace=2
 set lazyredraw
-set termguicolors
 set noerrorbells
 set wildmenu
 
@@ -17,11 +16,15 @@ set timeoutlen=1000
 set ttimeoutlen=50
 
 " Tabs
-set tabstop=8
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+
+" Line Numbers
+set number
+set relativenumber
 
 " Search
 set incsearch
@@ -41,23 +44,26 @@ set hidden
 " Readability
 set nowrap
 set scrolloff=5
-set cursorline
+" set cursorline
 set colorcolumn=80
-set textwidth=72
 
 " Disable for security reasons.
 " https://github.com/numirias/security/blob/cf4f74e0c6c6e4bbd6b59823aa1b85fa913e26eb/doc/2019-06-04_ace-vim-neovim.md#readme
 set nomodeline
 
+" Colourscheme
+set termguicolors
+colorscheme evening
+
 " Remappings
 let mapleader=" "
 nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
-nnoremap <silent> <leader>ec :e $MYVIMRC<CR>:cd %:p:h<CR>
+nnoremap <silent> <leader>ce :e $MYVIMRC<CR>:cd %:p:h<CR>
 
 " Python
 let g:python_recommended_styles=0
 
 " Colour scheme
-if has('unix')
-    highlight Normal guibg=NONE ctermbg=NONE
-endif
+" if has('unix')
+"     highlight Normal guibg=NONE ctermbg=NONE
+" endif
