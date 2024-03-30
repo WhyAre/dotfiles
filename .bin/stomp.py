@@ -113,7 +113,9 @@ for input_file_path in sorted(Path("tests").glob("*.in")):
     if opts.stderr:
         print(TERM_COLOR["YELLOW"], end="")
         with open(stderr_path) as stderr_file:
-            print("\t" + "\t".join(stderr_file.readlines()), end="")
+            lines = stderr_file.readlines()
+            if any(line.strip() for line in lines):
+                print("\t" + "\t".join(lines), end="")
         print(TERM_COLOR["RESET"], end="")
     if opts.stdout:
         with open(stdout_path) as stdout_file:
@@ -152,5 +154,4 @@ for input_file_path in sorted(Path("tests").glob("*.in")):
             any_failed = True
     if opts.stdout or opts.stderr:
         print("-" * 60)
-
 
