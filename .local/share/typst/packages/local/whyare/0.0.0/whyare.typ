@@ -7,7 +7,11 @@
   set page(
     margin: auto,
   )
-  set heading(numbering: "1.")
+  set heading(numbering: (..n) => {
+    if n.pos().len() < 4 {
+      numbering("1.1", ..n)
+    }
+  })
   set text(
     font: "Libertinus Sans"
   )
@@ -30,13 +34,13 @@
 #let defn(title: "", body) = {
   let header = "Definition"
   if title.len() > 0 { 
-    header += ": " + title
-   }
+  header += ": " + title
+}
   showybox(
     title: header,
     frame: (
-      title-color: blue,
-    ),
+    title-color: blue,
+  ),
     body
   )
 }
