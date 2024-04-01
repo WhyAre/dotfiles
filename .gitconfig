@@ -11,12 +11,12 @@
     helper = store
 [alias]
     a = add
-    ap = add --patch
     ai = add --interactive
+    ap = add --patch
     b = branch --verbose --verbose
-    br = b --remote
     ba = b --all
     bd = branch --delete --force
+    br = b --remote
     c = commit
     ca = commit --amend
     cane = commit --amend --no-edit
@@ -27,12 +27,13 @@
     ds = diff --staged
     f = fetch --prune --all --tags --force
     g = !git gui
+    jc = !git add -A && git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
     l = log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     la = l --all
     lf = l --pretty=fuller
     lfa = lf --all
-    pl = pull
     p = push
+    pl = pull
     poh = push origin HEAD
     r = remote --verbose
     sh = show
