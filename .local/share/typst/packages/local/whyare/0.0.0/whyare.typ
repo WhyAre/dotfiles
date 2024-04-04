@@ -4,6 +4,7 @@
   set par(
     justify: true,
   )
+  show raw.where(block: true): set par(justify: false)
   set page(
     margin: auto,
   )
@@ -18,6 +19,7 @@
   show math.equation: set text(
     font: "Libertinus Math"
   )
+
   doc
 }
 
@@ -27,9 +29,6 @@
 }
 
 
-#let trans(input) = {
-  $input^T$
-}
 
 #let defn(title: "", body) = {
   let header = "Definition"
@@ -58,5 +57,16 @@
 #let bigo = math.cal("O")
 
 #let ve(val) = {
-  $accent(#val, arrow)$
+  $bold(val)$
+}
+
+#let iff = sym.arrow.l.r.long.double
+#let imp = sym.arrow.r.long.double
+
+#let inv(val) = {
+  $val^(-1)$
+}
+
+#let trans(input) = {
+  $input^T$
 }
