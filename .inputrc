@@ -4,7 +4,7 @@ set show-all-if-unmodified on
 set show-all-if-ambiguous on
 set menu-complete-display-prefix on
 
-Control-j: menu-complete
-Control-k: menu-complete-backward
+# Control-j: menu-complete
+# Control-k: menu-complete-backward
 TAB:menu-complete
 "\e[Z": menu-complete
