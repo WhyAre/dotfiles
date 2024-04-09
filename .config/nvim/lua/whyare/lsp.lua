@@ -40,18 +40,15 @@ local on_attach = function(_)
 end
 
 local configs = {
-    gopls = true,
-    pyright = false,
-    pylsp = true,
-    texlab = true,
-    clangd = true,
-    rust_analyzer = {
-        cmd = {
-            "rustup", "run", "stable", "rust-analyzer",
-        }
-    },
-    kotlin_language_server = true,
+    gopls = { enabled = true },
+    pyright = { enabled = true },
+    pylsp = { enabled = true },
+    texlab = { enabled = true },
+    clangd = { enabled = true },
+    rust_analyzer = { enabled = true },
+    kotlin_language_server = { enabled = true },
     lua_ls = {
+        enabled = false,
         settings = {
             Lua = {
                 runtime = { version = 'LuaJIT' },
@@ -75,6 +72,7 @@ local configs = {
         },
     },
     typst_lsp= {
+        enabled = false,
         settings = {
             exportPdf = "never" -- Choose onType, onSave or never.
             -- serverPath = "" -- Normally, there is no need to uncomment it.
@@ -82,21 +80,23 @@ local configs = {
     }
 }
 
-local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 local default_config = {
     on_attach = on_attach,
 }
 
+local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if ok then
     default_config.capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
 local lspconfig = require('lspconfig')
 for lspserver, config in pairs(configs) do
-    if type(config) == "boolean" and config then
-        lspconfig[lspserver].setup(default_config)
-    elseif type(config) == "table" then
+    local enabled = config.enabled
+
+    if enabled then
+        config[enabled] = nil  -- Just so that it doesn't "pollute the config"
         local c = vim.tbl_deep_extend("force", default_config, config)
         lspconfig[lspserver].setup(c)
     end
+
 end
