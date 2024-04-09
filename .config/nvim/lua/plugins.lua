@@ -14,26 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    -- {
-    --     "folke/flash.nvim",
-    --     event = "VeryLazy",
-    --     config = function()
-    --         require 'flash'.setup {
-    --             labels = "arstgmneioqwfpbjluyxcdvzkh",
-    --             search = {
-    --                 wrap = false,
-    --             },
-    --             modes = {
-    --                 char = {
-    --                     multi_line = false,
-    --                     highlight = {
-    --                         backdrop = false,
-    --                     },
-    --                 }
-    --             }
-    --         }
-    --     end
-    -- },
     {
         'ThePrimeagen/harpoon',
         dependencies = {
