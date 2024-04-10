@@ -190,6 +190,7 @@ local plugins = {
             "hrsh7th/cmp-nvim-lua",
             "saadparwaiz1/cmp_luasnip",
 
+
             'L3MON4D3/LuaSnip',
         },
         config = function()
@@ -225,14 +226,13 @@ local plugins = {
 
     -- 'rhysd/committia.vim',
 
-    {
-        'stevearc/oil.nvim',
-        event = 'VeryLazy',
-        config = function()
-            require("oil").setup()
-            vim.keymap.set("n", "<leader>e", "<cmd>Oil %:p:h<cr>", { desc = "Open Oil.nvim" })
-        end
-    },
+    -- {
+    --     'stevearc/oil.nvim',
+    --     event = 'VeryLazy',
+    --     config = function()
+    --         require("oil").setup()
+    --     end
+    -- },
 
     -- Git
     {
@@ -309,6 +309,16 @@ local plugins = {
         event = 'VeryLazy',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = { signs = false }
+    },
+
+    { 
+        'echasnovski/mini.files',
+        version = false,
+        event = 'VeryLazy',
+        config = function()
+            require('mini.files').setup()
+            vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
+        end
     },
 }
 
