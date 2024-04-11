@@ -1,5 +1,5 @@
 vim.opt.background = 'light'
-local colorscheme = 'catppuccin-mocha'
+local colorscheme = 'catppuccin-macchiato'
 
 function GenericHighlights()
     vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
