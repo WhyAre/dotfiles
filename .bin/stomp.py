@@ -137,7 +137,13 @@ for input_file_path in sorted(Path("tests").glob("*.in")):
             print(f"\t{answer_path} doesn't exist")
     else:
         diff_process = subprocess.run(
-            ["diff", "--color=always", stdout_path, answer_path],
+            [
+                "diff",
+                "--strip-trailing-cr",
+                "--color=always",
+                stdout_path,
+                answer_path,
+            ],
             capture_output=True,
         )
         if diff_process.returncode == 0:
