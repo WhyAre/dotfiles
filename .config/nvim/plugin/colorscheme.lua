@@ -1,13 +1,15 @@
-vim.opt.background = 'light'
-local colorscheme = 'catppuccin-macchiato'
+vim.opt.background = 'dark'
+local colorscheme = 'catppuccin-mocha'
 
 function GenericHighlights()
     vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
+
 
     if vim.o.background == 'light' then
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000" })
     else
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff" })
+        vim.api.nvim_set_hl(0, "Comment", { fg = "#abb3cc" })
     end
 
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
