@@ -54,7 +54,8 @@
 // Math Mode Problems
 #let lamb=sym.lambda
 
-#let bigo = math.cal("O")
+#let ub = math.underbrace
+#let ob = math.overbrace
 
 #let ve(val) = {
   $bold(val)$
