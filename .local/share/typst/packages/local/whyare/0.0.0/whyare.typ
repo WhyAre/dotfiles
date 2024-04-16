@@ -14,7 +14,8 @@
     }
   })
   set text(
-    font: "Libertinus Sans"
+    font: "Libertinus Sans",
+    hyphenate: false,
   )
   show math.equation: set text(
     font: "Libertinus Math"
