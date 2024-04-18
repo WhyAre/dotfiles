@@ -311,7 +311,7 @@ local plugins = {
         opts = { signs = false }
     },
 
-    { 
+    {
         'echasnovski/mini.files',
         version = false,
         event = 'VeryLazy',
@@ -320,6 +320,73 @@ local plugins = {
             vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
         end
     },
+
+    {
+        'mfussenegger/nvim-dap',
+        config = function()
+            require("dapui").setup()
+
+            vim.keymap.set("n", "<F1>", require'dap'.toggle_breakpoint)
+            vim.keymap.set("n", "<F2>", require'dap'.continue)
+            vim.keymap.set("n", "<F3>", require'dap'.step_over)
+            vim.keymap.set("n", "<F4>", require'dap'.step_into)
+
+            local dap = require('dap')
+            dap.adapters.lldb = {
+                type = 'executable',
+                command = 'lldb-dap', -- adjust as needed, must be absolute path
+                name = 'lldb'
+            }
+
+            dap.configurations.cpp = {
+                {
+                    name = 'Launch',
+                    type = 'lldb',
+                    request = 'launch',
+                    program = function()
+                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    end,
+                    cwd = '${workspaceFolder}',
+                    stopOnEntry = false,
+                    args = {},
+
+                    -- 💀
+                    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+                    --
+                    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+                    --
+                    -- Otherwise you might get the following error:
+                    --
+                    --    Error on launch: Failed to attach to the target process
+                    --
+                    -- But you should be aware of the implications:
+                    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+                    -- runInTerminal = false,
+                },
+            }
+        end
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+        config = function()
+            local dap, dapui = require("dap"), require("dapui")
+            dapui.setup()
+
+            dap.listeners.before.attach.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.launch.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated.dapui_config = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited.dapui_config = function()
+                dapui.close()
+            end
+        end
+    }
 }
 
 require("lazy").setup(plugins)
