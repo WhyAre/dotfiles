@@ -13,11 +13,13 @@
 shopt -s histverify
 
 # FZF Key Bindings
-if [ -f "/usr/share/fzf/shell/key-bindings.bash"  ]; then
-    source /usr/share/fzf/shell/key-bindings.bash
-elif [ -f "/usr/share/bash-completion/completions/fzf-key-bindings" ]; then
-    source /usr/share/bash-completion/completions/fzf-key-bindings
-fi
+eval "$(fzf --bash)"
+
+# if [ -f "/usr/share/fzf/shell/key-bindings.bash"  ]; then
+#     source /usr/share/fzf/shell/key-bindings.bash
+# elif [ -f "/usr/share/bash-completion/completions/fzf-key-bindings" ]; then
+#     source /usr/share/bash-completion/completions/fzf-key-bindings
+# fi
 
 if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
