@@ -72,3 +72,7 @@
 #let trans(input) = {
   $input^T$
 }
+
+#let norm(inp) = {
+  $||inp||$
+}
