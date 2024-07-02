@@ -253,6 +253,11 @@ local plugins = {
     {
         'sindrets/diffview.nvim',
         event = 'VeryLazy',
+        config = function()
+            require("diffview").setup({
+                use_icons = false,
+            })
+        end
     },
 
     {
