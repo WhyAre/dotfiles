@@ -228,13 +228,14 @@ local plugins = {
 
     -- 'rhysd/committia.vim',
 
-    -- {
-    --     'stevearc/oil.nvim',
-    --     event = 'VeryLazy',
-    --     config = function()
-    --         require("oil").setup()
-    --     end
-    -- },
+    {
+        'stevearc/oil.nvim',
+        event = 'VeryLazy',
+        config = function()
+            require("oil").setup()
+            vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open oil.nvim" })
+        end
+    },
 
     -- Git
     {
@@ -313,15 +314,15 @@ local plugins = {
         opts = { signs = false }
     },
 
-    {
-        'echasnovski/mini.files',
-        version = false,
-        event = 'VeryLazy',
-        config = function()
-            require('mini.files').setup()
-            vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
-        end
-    },
+    -- {
+    --     'echasnovski/mini.files',
+    --     version = false,
+    --     event = 'VeryLazy',
+    --     config = function()
+    --         require('mini.files').setup()
+    --         vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
+    --     end
+    -- },
 
     {
         'mfussenegger/nvim-dap',
