@@ -55,7 +55,7 @@ def autostart():
     subprocess.Popen("nm-applet")
     # subprocess.Popen("blueman-applet")
     subprocess.Popen(["xss-lock", "xsecurelock"])
-    subprocess.Popen(["picom"])
+    # subprocess.Popen(["picom"])
     subprocess.Popen("/usr/libexec/polkit-gnome-authentication-agent-1")
 
 
