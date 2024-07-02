@@ -68,7 +68,7 @@ def primary(input: str):
 
 # Configuration
 mod = "mod4"
-terminal = "kitty"
+terminal = "wezterm"
 browser = "vivaldi"
 screenshot = "flameshot gui"
 file_browser = "nemo"
