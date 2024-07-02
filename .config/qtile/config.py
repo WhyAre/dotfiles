@@ -213,7 +213,11 @@ groups = [
     Group("7"),
     Group("8"),
     Group("9"),
-    Group("m", matches=Match(wm_class="telegram-desktop"), label="0"),
+    Group(
+        "m",
+        matches=[Match(wm_class="telegram-desktop"), Match(wm_class="discord")],
+        label="0",
+    ),
 ]
 
 for i in groups:
