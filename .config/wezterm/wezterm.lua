@@ -30,35 +30,37 @@ local config = {
 
 }
 
-config.color_scheme = 'One Light (base16)'
-config.window_frame = {
-    active_titlebar_bg = '#f0f0f0',
-    inactive_titlebar_bg = '#f0f0f0',
-}
-config.colors = {
-    tab_bar = {
-        new_tab = {
-            bg_color = '#fff',
-            fg_color = '#000',
-        },
-        new_tab_hover = {
-            bg_color = '#fff',
-            fg_color = '#000',
-        },
-        inactive_tab = {
-            bg_color = '#fff',
-            fg_color = '#000',
-        },
-        inactive_tab_hover = {
-            bg_color = '#ffffff',
-            fg_color = '#000',
-        },
-        active_tab = {
-            bg_color = '#ffffff',
-            fg_color = '#000',
-        },
-    },
-}
+config.color_scheme = 'OneHalfDark'
+
+-- config.color_scheme = 'One Light (base16)'
+-- config.window_frame = {
+--     active_titlebar_bg = '#f0f0f0',
+--     inactive_titlebar_bg = '#f0f0f0',
+-- }
+-- config.colors = {
+--     tab_bar = {
+--         new_tab = {
+--             bg_color = '#fff',
+--             fg_color = '#000',
+--         },
+--         new_tab_hover = {
+--             bg_color = '#fff',
+--             fg_color = '#000',
+--         },
+--         inactive_tab = {
+--             bg_color = '#fff',
+--             fg_color = '#000',
+--         },
+--         inactive_tab_hover = {
+--             bg_color = '#ffffff',
+--             fg_color = '#000',
+--         },
+--         active_tab = {
+--             bg_color = '#ffffff',
+--             fg_color = '#000',
+--         },
+--     },
+-- }
 
 -- config.colors = {
 --     -- The default text color
