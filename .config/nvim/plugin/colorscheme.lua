@@ -1,5 +1,5 @@
 vim.opt.background = 'dark'
-local colorscheme = 'tokyonight-night'
+local colorscheme = 'catppuccin-mocha'
 
 function GenericHighlights()
     vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 })
 
 vim.api.nvim_create_autocmd('ColorScheme', {
-    pattern = 'tokyonight-*',
+    pattern = 'tokyonight*',
     group = mycolour,
     callback = function()
         TokyoNightHighlights()
