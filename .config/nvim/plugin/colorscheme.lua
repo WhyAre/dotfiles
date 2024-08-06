@@ -1,5 +1,5 @@
-vim.opt.background = 'light'
-local colorscheme = 'onedark'
+vim.opt.background = 'dark'
+local colorscheme = 'tokyonight-night'
 
 function GenericHighlights()
     vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
@@ -17,6 +17,11 @@ function GenericHighlights()
     vim.api.nvim_set_hl(0, "WhiteSpace", { link = "Comment" })
 end
 
+function TokyoNightHighlights()
+    vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
+end
+
 local mycolour = vim.api.nvim_create_augroup('MyColours', { clear = true })
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = '*',
@@ -26,6 +31,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'tokyonight-*',
+    group = mycolour,
+    callback = function()
+        TokyoNightHighlights()
+    end
+})
 if vim.g.vscode ~= nil then
     return
 end
