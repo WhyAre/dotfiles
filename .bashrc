@@ -13,7 +13,9 @@
 shopt -s histverify
 
 # FZF Key Bindings
-eval "$(fzf --bash)"
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --bash)"
+fi
 
 # if [ -f "/usr/share/fzf/shell/key-bindings.bash"  ]; then
 #     source /usr/share/fzf/shell/key-bindings.bash
