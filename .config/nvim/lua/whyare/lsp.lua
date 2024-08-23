@@ -44,13 +44,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local configs = {
     gopls = { enabled = true },
-    pyright = { enabled = true },
+    pyright = { enabled = false },
     pylsp = { enabled = true },
     tsserver = {enabled = true},
     texlab = { enabled = true },
     clangd = { enabled = true },
     rust_analyzer = { enabled = true },
     kotlin_language_server = { enabled = true },
+    jdtls = { enabled = true },
     lua_ls = {
         enabled = false,
         settings = {
