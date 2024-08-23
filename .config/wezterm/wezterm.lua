@@ -19,6 +19,7 @@ local config = {
         bottom = 0,
     },
     font = wezterm.font_with_fallback {
+        'MonoLisaNL',
         'MonoLisa',
         'JetBrains Mono',
         'DejavuSans Mono',
@@ -30,7 +31,7 @@ local config = {
 
 }
 
-config.color_scheme = 'OneHalfDark'
+config.color_scheme = 'Catppuccin Mocha'
 
 -- config.color_scheme = 'One Light (base16)'
 -- config.window_frame = {
