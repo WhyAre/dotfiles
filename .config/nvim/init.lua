@@ -19,9 +19,9 @@ vim.opt.mouse = 'a'
 vim.opt.guicursor = ''
 vim.opt.ruler = false
 
--- Timeout things
-vim.opt.timeoutlen = 1000
-vim.opt.ttimeoutlen = 50
+-- -- Timeout things
+-- vim.opt.timeoutlen = 1000
+-- vim.opt.ttimeoutlen = 50
 
 -- Tabs
 vim.opt.tabstop = 2
