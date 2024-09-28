@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>ld", require "telescope.builtin".diagnostics, { desc = 'Diagnostics' })
         vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float, { desc = 'Diagnostics' })
         vim.keymap.set("n", "<leader>lf", function()
-            require("conform").format()
+            require("conform").format({lsp_format="fallback"})
         end, { desc = 'Format' })
         vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = 'Rename' })
         vim.keymap.set("n", '<c-]>', require "telescope.builtin".lsp_definitions,
