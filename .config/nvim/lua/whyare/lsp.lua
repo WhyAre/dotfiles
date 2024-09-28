@@ -46,7 +46,7 @@ local configs = {
     gopls = { enabled = true },
     pyright = { enabled = false },
     pylsp = { enabled = true },
-    tsserver = {enabled = true},
+    ts_ls = {enabled = true},
     texlab = { enabled = true },
     clangd = { enabled = true },
     rust_analyzer = { enabled = true },
