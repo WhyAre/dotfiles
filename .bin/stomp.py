@@ -5,6 +5,35 @@ import subprocess
 import sys
 from pathlib import Path
 
+
+def compile_cpp(program_path: Path):
+    print("Compiling C++ code...")
+    exe_path = program_path.stem
+
+    if Path("./Makefile").exists():
+        compile_command = ["make", str(exe_path)]
+    else:
+        compile_command = [
+            "g++",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-DDEBUG",
+            str(program_path),
+            "-o",
+            str(exe_path),
+        ]
+
+    compile_process = subprocess.run(compile_command)
+    if compile_process.returncode != 0:
+        print(f"{TERM_COLOR['BOLD_YELLOW']} COMPILATION FAILED{TERM_COLOR['RESET']}")
+        sys.exit(1)
+    else:
+        print("Compilation OK")
+
+    return str(exe_path)
+
+
 TERM_COLOR: dict[str, str] = {}
 TERM_COLOR["NORMAL"] = ""
 TERM_COLOR["RESET"] = "\033[m"
@@ -59,24 +88,7 @@ else:
 
 
 if PROGRAM_TYPE == "C++":
-    print("Compiling C++ code...")
-
-    if Path("./Makefile").exists():
-        compile_command = ["make"]
-    else:
-        compile_command = [
-            "g++",
-            "-Wall",
-            "-Wextra",
-            "-DDEBUG",
-            opts.program_path,
-        ]
-    compile_process = subprocess.run(compile_command)
-    if compile_process.returncode != 0:
-        print(f"{TERM_COLOR['BOLD_YELLOW']} COMPILATION FAILED{TERM_COLOR['RESET']}")
-        sys.exit(1)
-    else:
-        print("Compilation OK")
+    exe_path = compile_cpp(Path(opts.program_path))
 elif PROGRAM_TYPE == "PYTHON":
     print("Python programs don't need compilers haha")
 else:
@@ -96,7 +108,7 @@ for input_file_path in sorted(Path("tests").glob("*.in")):
     ):
         if PROGRAM_TYPE == "C++":
             process = subprocess.run(
-                ["./a.out" if platform.system() != "Windows" else ".\\a.exe"],
+                [f"./{exe_path}" if platform.system() != "Windows" else ".\\a.exe"],
                 stdin=input_file,
                 stdout=stdout_file,
                 stderr=stderr_file,
@@ -160,4 +172,3 @@ for input_file_path in sorted(Path("tests").glob("*.in")):
             any_failed = True
     if opts.stdout or opts.stderr:
         print("-" * 60)
-
