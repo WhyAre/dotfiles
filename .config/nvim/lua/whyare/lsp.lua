@@ -19,7 +19,7 @@ vim.keymap.set("n", "<leader>li", '<cmd>LspInfo<CR>', { desc = "LSP Info" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('whyare-lsp-attach', { clear = true }),
-    callback = function(event)
+    callback = function(args)
         vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = 'Code actions' })
         vim.keymap.set("n", "<leader>ld", require "telescope.builtin".diagnostics, { desc = 'Diagnostics' })
         vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float, { desc = 'Diagnostics' })
@@ -39,6 +39,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
             { desc = 'Go to type definition' })
         vim.keymap.set("n", "gd", require "telescope.builtin".lsp_definitions, { desc = 'Go to definition' })
         vim.keymap.set("n", "gr", require "telescope.builtin".lsp_references, { desc = 'Go to references' })
+
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
     end
 })
 
