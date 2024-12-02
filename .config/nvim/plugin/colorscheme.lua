@@ -10,9 +10,9 @@ function GenericHighlights()
     else
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff" })
         vim.api.nvim_set_hl(0, "Comment", { fg = "#abb3cc" })
+        vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "Grey"})
     end
 
-    vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "White"})
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
     vim.api.nvim_set_hl(0, "LineNr", { link = "CurLineNr" })
