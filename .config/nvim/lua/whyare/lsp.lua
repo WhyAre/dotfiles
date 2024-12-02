@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local configs = {
+    ocamllsp = { enabled = true },
     gopls = { enabled = true },
     pyright = { enabled = false },
     pylsp = { enabled = true },
