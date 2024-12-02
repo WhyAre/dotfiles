@@ -10,8 +10,8 @@ cmp.setup({
     },
     window = {
       completion = cmp.config.window.bordered(),
-      documentation = false,
-      -- documentation = cmp.config.window.bordered(),
+      -- documentation = false,
+      documentation = cmp.config.window.bordered(),
     },
     mapping = {
         -- ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -34,6 +34,7 @@ cmp.setup({
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         -- { name = 'buffer', keyword_length = 3 },
     }),
 })

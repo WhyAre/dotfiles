@@ -42,9 +42,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-        end
+        -- if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })  -- Enabled all the time whether the lsp supports or not (thx jdtls)
+        -- end
     end
 })
 
@@ -58,7 +58,15 @@ local configs = {
     clangd = { enabled = true },
     rust_analyzer = { enabled = true },
     kotlin_language_server = { enabled = true },
-    jdtls = { enabled = true },
+    jdtls = {
+        enabled = true,
+        settings = {
+            java = {
+                inlayHints = { parameterNames = { enabled = "all" } },
+                signatureHelp = { enabled = true },
+            }
+        }
+    },
     lua_ls = {
         enabled = false,
         settings = {
@@ -92,8 +100,7 @@ local configs = {
     }
 }
 
-local default_config = {
-}
+local default_config = {}
 
 local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if ok then
@@ -109,5 +116,4 @@ for lspserver, config in pairs(configs) do
         local c = vim.tbl_deep_extend("force", default_config, config)
         lspconfig[lspserver].setup(c)
     end
-
 end
