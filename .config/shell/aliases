@@ -49,7 +49,7 @@ alias tmux="tmux -u"  # Allow unicode characters
 ## exa ##
 ls_flags="--color=auto --classify --group-directories-first"
 if command -v eza > /dev/null; then
-    alias ls="eza ${ls_flags} --group --sort=age --links"
+    alias ls="eza ${ls_flags} --group --sort=name --links"
 else 
     alias ls="ls ${ls_flags} --human-readable"
 fi
