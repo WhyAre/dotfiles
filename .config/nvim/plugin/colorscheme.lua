@@ -12,6 +12,8 @@ function GenericHighlights()
         vim.api.nvim_set_hl(0, "Comment", { fg = "#abb3cc" })
     end
 
+    vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "White"})
+    vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
     vim.api.nvim_set_hl(0, "LineNr", { link = "CurLineNr" })
     vim.api.nvim_set_hl(0, "WhiteSpace", { link = "Comment" })
