@@ -8,11 +8,13 @@ cmp.setup({
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
+
     window = {
       completion = cmp.config.window.bordered(),
       -- documentation = false,
       documentation = cmp.config.window.bordered(),
     },
+
     mapping = {
         -- ['<C-d>'] = cmp.mapping.scroll_docs(4),
         -- ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -25,6 +27,13 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    },
+
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.menu = nil
+            return vim_item
+        end,
     },
 
     sources = cmp.config.sources({
