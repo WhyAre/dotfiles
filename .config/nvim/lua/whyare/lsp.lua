@@ -60,6 +60,9 @@ local configs = {
     kotlin_language_server = { enabled = true },
     jdtls = {
         enabled = true,
+        root_dir = function()
+            return vim.fs.dirname(vim.fs.find({'.idea', '.git'}, { upward = true })[1])
+        end,
         settings = {
             java = {
                 inlayHints = { parameterNames = { enabled = "all" } },
