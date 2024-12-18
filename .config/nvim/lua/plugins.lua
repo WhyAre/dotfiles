@@ -328,6 +328,8 @@ local plugins = {
     --         vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
     --     end
     -- },
+    --
+    'mfussenegger/nvim-jdtls',
 
     {
         'mfussenegger/nvim-dap',

@@ -58,18 +58,6 @@ local configs = {
     clangd = { enabled = true },
     rust_analyzer = { enabled = true },
     kotlin_language_server = { enabled = true },
-    jdtls = {
-        enabled = true,
-        root_dir = function()
-            return vim.fs.dirname(vim.fs.find({'.idea', '.git'}, { upward = true })[1])
-        end,
-        settings = {
-            java = {
-                inlayHints = { parameterNames = { enabled = "all" } },
-                signatureHelp = { enabled = true },
-            }
-        }
-    },
     lua_ls = {
         enabled = false,
         settings = {
