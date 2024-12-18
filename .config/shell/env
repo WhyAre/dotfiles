@@ -7,6 +7,7 @@ add_to_path "$HOME/.cargo/bin"
 add_to_path "/opt"
 add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/go/bin"
+add_to_path "$HOME/bin/jdtls/bin"
 
 ## Editor ##
 if command -v nvim >/dev/null; then
