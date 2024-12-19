@@ -56,7 +56,16 @@ local configs = {
     ts_ls = {enabled = true},
     texlab = { enabled = true },
     clangd = { enabled = true },
-    rust_analyzer = { enabled = true },
+    rust_analyzer = {
+        enabled = true,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+            },
+        },
+    },
     kotlin_language_server = { enabled = true },
     lua_ls = {
         enabled = false,
