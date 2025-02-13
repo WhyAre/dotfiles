@@ -215,7 +215,11 @@ groups = [
     Group("9"),
     Group(
         "m",
-        matches=[Match(wm_class="telegram-desktop"), Match(wm_class="discord")],
+        matches=[
+            Match(wm_class="telegram-desktop"),
+            Match(wm_class="discord"),
+            Match(wm_class="mattermost"),
+        ],
         label="0",
     ),
 ]
