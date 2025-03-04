@@ -49,9 +49,6 @@
     enabled = true
 [pull]
     ff = only
-[push]
-    default = upstream
-    autoSetupRemote = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
