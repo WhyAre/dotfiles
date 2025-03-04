@@ -64,7 +64,7 @@ local plugins = {
 
             local rules = {
                 Rule("```", "```"),
-                Rule("$", "$", {"typst"}),
+                -- Rule("$", "$", {"typst"}),
                 Rule("```.*$", "```"):only_cr():use_regex(true),
                 Rule('"""', '"""'):with_pair(cond.not_before_char('"', 3)),
                 Rule("'''", "'''"):with_pair(cond.not_before_char('"', 3)),
