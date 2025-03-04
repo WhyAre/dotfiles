@@ -214,7 +214,7 @@ groups = [
     Group("8"),
     Group("9"),
     Group(
-        "m",
+        "a",
         matches=[
             Match(wm_class="telegram-desktop"),
             Match(wm_class="discord"),
