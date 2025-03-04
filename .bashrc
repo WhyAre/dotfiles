@@ -8,6 +8,7 @@
 
 # Import things
 . ~/.config/shell/aliases
+. ~/.profile
 
 # Configuration
 shopt -s histverify
