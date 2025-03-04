@@ -91,11 +91,11 @@ local configs = {
             },
         },
     },
-    typst_lsp= {
-        enabled = false,
+    tinymist= {
+        enabled = true,
         settings = {
-            exportPdf = "never" -- Choose onType, onSave or never.
-            -- serverPath = "" -- Normally, there is no need to uncomment it.
+            formatterMode = "typstyle",
+            semanticTokens = "disable"
         }
     }
 }
