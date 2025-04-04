@@ -36,6 +36,7 @@
     pl = pull
     poh = push origin HEAD
     r = remote --verbose
+    test = stash --include-untracked --keep-index
     sh = show
     sm = submodule
     smu = sm update --init --recursive
@@ -56,11 +57,12 @@
     diff-so-fancy = true
     light = true
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [diff]
     colorMoved = default
 [rebase]
     autosquash = true
+    updateRefs = true
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
