@@ -8,6 +8,7 @@ add_to_path "/opt"
 add_to_path "/usr/local/go/bin"
 add_to_path "$HOME/go/bin"
 add_to_path "$HOME/bin/jdtls/bin"
+add_to_path "/usr/local/texlive/2024/bin/x86_64-linux"
 
 ## Editor ##
 if command -v nvim >/dev/null; then
@@ -54,3 +55,5 @@ if command -v docker >/dev/null; then
 fi
 
 export BAT_THEME="Solarized (light)"
+
+export GEM_HOME=$HOME/.gem
