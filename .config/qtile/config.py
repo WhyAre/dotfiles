@@ -69,7 +69,7 @@ def primary(input: str):
 # Configuration
 mod = "mod4"
 terminal = "wezterm"
-browser = "vivaldi"
+browser = "flatpak run app.zen_browser.zen"
 screenshot = "flameshot gui"
 file_browser = "nemo"
 lockscreen = "xsecurelock"
