@@ -31,7 +31,7 @@ local config = {
 
 }
 
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'dayfox'
 
 -- config.color_scheme = 'One Light (base16)'
 -- config.window_frame = {
