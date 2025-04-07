@@ -79,6 +79,7 @@ local plugins = {
     { 'towolf/vim-helm',   ft = 'helm' },
 
     -- Colour
+    'Tsuzat/NeoSolarized.nvim',
     'projekt0n/github-nvim-theme',
     'folke/tokyonight.nvim',
     { "catppuccin/nvim", name = "catppuccin" },
@@ -86,6 +87,7 @@ local plugins = {
     'Shatur/neovim-ayu',
     'Mofiqul/vscode.nvim',
     'EdenEast/nightfox.nvim',
+    "aktersnurra/no-clown-fiesta.nvim",
     {
         'navarasu/onedark.nvim',
         config = function()
@@ -96,7 +98,6 @@ local plugins = {
         end
 
     },
-
 
     -- Status line
     {

@@ -1,5 +1,5 @@
-vim.opt.background = 'dark'
-local colorscheme = 'github_dark_colorblind'
+vim.opt.background = 'light'
+local colorscheme = 'dayfox'
 
 function GenericHighlights()
     vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
