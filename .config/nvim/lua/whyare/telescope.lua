@@ -8,7 +8,7 @@ telescope.setup {
             height = 0.95,
         },
         file_ignore_patterns = {
-            ".git/.*"
+            "%.git/.*"
         },
     },
     pickers = {
