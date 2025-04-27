@@ -300,7 +300,7 @@ local plugins = {
                 typst = {
                     template = [[
 #figure(
-  rect(image("$FILE_PATH", width: 80%)),
+  image("$FILE_PATH"),
   caption: [$LABEL],
 ) <fig-$LABEL>
     ]],
