@@ -8,13 +8,19 @@ telescope.setup {
             height = 0.95,
         },
         file_ignore_patterns = {
-            "%.git/.*"
+            "%.git/.*",
+            "node_modules/.*"
         },
     },
     pickers = {
         find_files = {
             disable_devicons = true,
             hidden = true,
+        },
+        live_grep = {
+            additional_args = function(_)
+                return { "--hidden" }
+            end
         },
     },
     extensions = {
