@@ -2,6 +2,8 @@ if not vim.fn.has('nvim-0.6') then
     return
 end
 
+vim.g._ts_force_sync_parsing = true  -- https://github.com/neovim/neovim/issues/32660
+
 require 'nvim-treesitter.install'.compilers = { "gcc", "clang" }
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
