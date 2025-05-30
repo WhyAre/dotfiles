@@ -7,9 +7,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"typst", "tex", "markdown"},
+  pattern = {"typst"},
   callback = function()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = "en"
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
   end,
 })
