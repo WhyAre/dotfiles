@@ -10,6 +10,9 @@ vim.keymap.set("n", "<leader>cs", "<cmd>source %<CR>", { desc = "source %" })
 vim.keymap.set("n", "<leader>ce", "<cmd>edit $MYVIMRC<CR>:cd %:p:h<CR>:pwd<CR>", { desc = "Edit configuration" })
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>:pwd<CR>", { desc = "Change directory" })
 
+-- Spelling
+vim.keymap.set("n", "<leader>s", "1z=", { desc = "Accept first spelling suggestion" })
+
 -- Replicate unimpaired plugin by tpope
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "bnext" })
 vim.keymap.set("n", "[b", "<cmd>bprev<CR>", { desc = "bprev" })
