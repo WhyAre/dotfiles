@@ -48,16 +48,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
-local configs = {
-    ocamllsp = { enabled = true },
-    gopls = { enabled = true },
-    pyright = { enabled = false },
-    pylsp = { enabled = true },
-    ts_ls = {enabled = true},
-    texlab = { enabled = true },
-    clangd = { enabled = true },
+local configured_lsps = {
     rust_analyzer = {
-        enabled = true,
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = {
@@ -66,9 +58,7 @@ local configs = {
             },
         },
     },
-    kotlin_language_server = { enabled = true },
     lua_ls = {
-        enabled = false,
         settings = {
             Lua = {
                 runtime = { version = 'LuaJIT' },
@@ -92,12 +82,25 @@ local configs = {
         },
     },
     tinymist= {
-        enabled = true,
         settings = {
             formatterMode = "typstyle",
-            semanticTokens = "disable"
+            semanticTokens = "disable",
+            projectResolution = "lockDatabase"
         }
     }
+}
+
+local enabled_lsps  = {
+    'ocamllsp',
+    'gopls',
+    -- 'pyright',
+    -- 'pylsp',
+    'ts_ls',
+    -- 'texlab',
+    'clangd',
+    'rust_analyzer',
+    -- 'lua_ls',
+    'tinymist'
 }
 
 local default_config = {}
@@ -107,13 +110,13 @@ if ok then
     default_config.capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
-local lspconfig = require('lspconfig')
-for lspserver, config in pairs(configs) do
-    local enabled = config.enabled
+-- Set the config for LSPs
+for lspserver_name, config in pairs(configured_lsps) do
+    local c = vim.tbl_deep_extend("force", default_config, config)
+    vim.lsp.config(lspserver_name, c)
+end
 
-    if enabled then
-        config[enabled] = nil  -- Just so that it doesn't "pollute the config"
-        local c = vim.tbl_deep_extend("force", default_config, config)
-        lspconfig[lspserver].setup(c)
-    end
+-- Enable the relevant LSPs
+for _, name in ipairs(enabled_lsps) do
+    vim.lsp.enable(name)
 end
