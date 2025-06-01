@@ -28,6 +28,15 @@ local config = {
     check_for_updates = false,
 
     audible_bell = "Disabled",
+
+    keys = {
+        {
+            key = 'Enter',
+            mods = 'ALT',
+            action = wezterm.action.DisableDefaultAssignment,
+        },
+    }
+
 }
 
 -- Colours
