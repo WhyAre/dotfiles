@@ -20,7 +20,6 @@ local config = {
         bottom = 0,
     },
     font = wezterm.font_with_fallback {
-        'MonoLisaNL',
         'MonoLisa',
         'JetBrains Mono',
         'DejavuSans Mono',
@@ -29,7 +28,6 @@ local config = {
     check_for_updates = false,
 
     audible_bell = "Disabled",
-
 }
 
 config.color_scheme = 'Github Light (Gogh)'
