@@ -1,23 +1,28 @@
-#import "@preview/showybox:2.0.1": showybox
+#import "@preview/theorion:0.3.3": *
+#import cosmos.clouds: *
+#import "@preview/showybox:2.0.4"
+#import "@preview/gentle-clues:1.2.0"
 
-#let template(doc) = {
-  set par(
-    justify: true,
-  )
+#let template(content) = {
+  set page(margin: 1in)
+
+  // Justify Text
+  set par(justify: true)
+  set text(hyphenate: false)
   show raw.where(block: true): set par(justify: false)
-  set page(
-    margin: auto,
-  )
-  // set heading(numbering: (..n) => {
-  //   if n.pos().len() < 4 {
-  //     numbering("1.1", ..n)
-  //   }
-  // })
-  set text(
-    hyphenate: false,
-  )
-  doc
-}
 
-#let iff = sym.arrow.l.r.long.double
-#let imp = sym.arrow.r.long.double
+  // Font
+  set text(font: "Lexend", size: 11pt)
+  show math.equation: set text(font: "Libertinus Math")
+  show raw: set text(font: "MonoLisa", size: 9pt)
+
+  // Styling links
+  show link: content => box[
+    #set text(fill: blue)
+    #underline(content)
+  ]
+
+  show: show-theorion
+
+  content
+}
