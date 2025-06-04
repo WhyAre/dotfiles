@@ -14,12 +14,14 @@ telescope.setup {
     },
     pickers = {
         find_files = {
-            disable_devicons = true,
-            hidden = true,
+            disable_devicons = false,
+            find_command = {
+                "fd", "--hidden", "--no-ignore-vcs"
+            }
         },
         live_grep = {
             additional_args = function(_)
-                return { "--hidden" }
+                return { "--hidden", "--no-ignore-vcs" }
             end
         },
     },
