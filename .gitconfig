@@ -1,5 +1,7 @@
 [include]
     path = .config/git/user
+
+; General Config
 [init]
     defaultBranch = main
 [core]
@@ -9,26 +11,50 @@
     preloadindex = true
     fscache = true
     pager = delta
-[status]
-    relativePaths = false
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    diff-so-fancy = true
+    light = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+; Commands
+[branch]
+    sort = -committerdate
 [commit]
     verbose = 2
+[credential]
+    helper = store
+[diff]
+    colorMoved = default
+[fetch]
+    prune = true
+[merge]
+    conflictstyle = zdiff3
+[pull]
+    default = upstream
+    ff = only
 [push]
     autoSetupRemote = true
     default = upstream
     followTags = true ; KIV
-[pull]
-    default = upstream
-    ff = only
 [rebase]
+    autosquash = true
+    updateRefs = true
     autoStash = true ; KIV
     missingCommitsCheck = warn ; KIV
-[branch]
-    sort = -committerdate
+[rerere]
+    enabled = true
+[status]
+    relativePaths = false
 [tag]
     sort = -committerdate
-[credential]
-    helper = store
+
 [alias]
     a = add
     ai = add --interactive
@@ -64,25 +90,3 @@
     st = status --short --branch
     sti = st --ignored
     wt = worktree
-[fetch]
-    prune = true
-[rerere]
-    enabled = true
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true    # use n and N to move between diff sections
-    diff-so-fancy = true
-    light = true
-[merge]
-    conflictstyle = zdiff3
-[diff]
-    colorMoved = default
-[rebase]
-    autosquash = true
-    updateRefs = true
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
