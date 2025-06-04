@@ -57,18 +57,15 @@
 
 [alias]
     a = add
-    ai = add --interactive
     ap = add --patch
     b = branch --verbose --verbose
     ba = b --all
     bd = branch --delete --force
-    br = b --remote
     c = commit
     ca = commit --amend
     cane = commit --amend --no-edit
     co = checkout
     cob = checkout -b
-    cs = commit -S
     d = diff
     ds = diff --staged
     f = fetch --prune --all --tags --force
@@ -83,7 +80,6 @@
     poh = push origin HEAD
     r = remote --verbose
     test = stash --include-untracked --keep-index
-    sh = show
     sm = submodule
     smu = sm update --init --recursive
     smur = smu --remote
