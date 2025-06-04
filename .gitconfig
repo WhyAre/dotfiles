@@ -61,7 +61,7 @@
     sm = submodule
     smu = sm update --init --recursive
     smur = smu --remote
-    st = status -sb
+    st = status --short --branch
     sti = st --ignored
     wt = worktree
 [fetch]
