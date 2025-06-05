@@ -10,7 +10,8 @@ telescope.setup {
         file_ignore_patterns = {
             "%.git/.*",
             "node_modules/.*",
-            "%.obsidian/.*"
+            "%.obsidian/.*",
+            "%.venv/.*"
         },
     },
     pickers = {
