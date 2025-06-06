@@ -47,6 +47,7 @@ telescope.load_extension 'file_browser'
 local telescope_builtin = require 'telescope.builtin'
 
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Find file" })
+vim.keymap.set('n', '<leader>fg', telescope_builtin.git_files, { desc = "Find git file" })
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "Find buffer" })
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, { desc = "Find mark" })
 vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, { desc = "Find keymap" })
