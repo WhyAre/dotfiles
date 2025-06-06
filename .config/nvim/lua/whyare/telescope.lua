@@ -11,7 +11,8 @@ telescope.setup {
             "%.git/.*",
             "node_modules/.*",
             "%.obsidian/.*",
-            "%.venv/.*"
+            "%.venv/.*",
+            "%_opam/.*"
         },
     },
     pickers = {
