@@ -35,8 +35,7 @@ fi
 
 ## Zoxide
 if command -v zoxide &>/dev/null; then
-    eval "$(zoxide init bash)"
-    alias cd=z
+    eval "$(zoxide init bash --cmd cd)"
 fi
 ## thefuck
 if command -v thefuck &>/dev/null; then
