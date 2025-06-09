@@ -253,11 +253,6 @@ local plugins = {
     },
 
     {
-        'earthly/earthly.vim',
-        ft = "earthfile",
-    },
-
-    {
         'lervag/vimtex',
         ft = "tex"
     },
