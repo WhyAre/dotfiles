@@ -258,11 +258,6 @@ local plugins = {
     },
 
     {
-        'kaarmu/typst.vim',
-        ft = 'typst',
-    },
-
-    {
         "whyare/img-clip.nvim",
         event = "BufEnter",
         opts = {
