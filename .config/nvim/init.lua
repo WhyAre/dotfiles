@@ -8,7 +8,7 @@ vim.keymap.set('', '<Space>', '') -- Disables default behavior of <space>
 require("plugins")
 
 -- General settings
-vim.opt.backspace = "2"
+vim.opt.backspace = "indent,eol,start,nostop"
 vim.opt.lazyredraw = true
 vim.opt.errorbells = false
 vim.opt.wildmenu = true
@@ -48,7 +48,8 @@ vim.opt.undofile = true
 -- Readability
 vim.opt.wrap = false
 vim.opt.scrolloff = 5
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 vim.opt.textwidth = 0
 vim.opt.colorcolumn = "81"
 vim.opt.list = true
