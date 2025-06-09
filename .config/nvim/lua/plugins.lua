@@ -51,8 +51,6 @@ local plugins = {
 
     { 'godlygeek/tabular', event = 'VeryLazy' },
 
-    { 'towolf/vim-helm',   ft = 'helm' },
-
     -- Colour
     'Tsuzat/NeoSolarized.nvim',
     'projekt0n/github-nvim-theme',
