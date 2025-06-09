@@ -53,6 +53,6 @@ vim.opt.colorcolumn = "81"
 vim.opt.list = true
 vim.opt.listchars = { tab = '>-', nbsp = '␣', trail = '•' }
 
--- Disable for security reasons.
--- https://github.com/numirias/security/blob/cf4f74e0c6c6e4bbd6b59823aa1b85fa913e26eb/doc/2019-06-04_ace-vim-neovim.md#readme
-vim.opt.modeline = true
+-- Majority disable so I disable too
+-- https://www.reddit.com/r/vim/comments/1bqkzu1/do_you_use_modelines/
+vim.opt.modeline = false
