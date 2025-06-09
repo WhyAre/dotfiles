@@ -8,8 +8,6 @@ vim.keymap.set('', '<Space>', '') -- Disables default behavior of <space>
 require("plugins")
 
 -- General settings
--- syntax on
--- filetype plugin indent on
 vim.opt.backspace = "2"
 vim.opt.lazyredraw = true
 vim.opt.errorbells = false
@@ -18,10 +16,6 @@ vim.opt.path:append("**") -- From: https://youtu.be/XA2WjJbmmoM?t=409
 vim.opt.mouse = 'a'
 vim.opt.guicursor = ''
 vim.opt.ruler = false
-
--- -- Timeout things
--- vim.opt.timeoutlen = 1000
--- vim.opt.ttimeoutlen = 50
 
 -- Tabs
 vim.opt.tabstop = 4
