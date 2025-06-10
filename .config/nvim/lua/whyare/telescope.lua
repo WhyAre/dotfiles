@@ -19,7 +19,7 @@ telescope.setup {
         find_files = {
             disable_devicons = false,
             find_command = {
-                "fd", "--hidden", "--no-ignore-vcs"
+                "fd", "--hidden", "--no-ignore-vcs", "--type", "file"
             }
         },
         live_grep = {
