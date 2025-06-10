@@ -411,6 +411,11 @@ local plugins = {
         vim.g.loaded_netrwPlugin = 1
       end,
     },
+
+    {
+        "NMAC427/guess-indent.nvim",
+        opts = {},
+    },
 }
 
 require("lazy").setup(plugins)
