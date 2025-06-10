@@ -3,5 +3,7 @@ use = "dedukun/relative-motions"
 rev = "ce2e890"
 hash = "23915860e59348bf4166778bb0e606f7"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "d04a298"
+hash = "a4d508772dc7b20d739a2f9a1d2d396f"
