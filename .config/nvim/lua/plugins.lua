@@ -272,16 +272,6 @@ local plugins = {
         opts = { signs = false }
     },
 
-    -- {
-    --     'echasnovski/mini.files',
-    --     version = false,
-    --     event = 'VeryLazy',
-    --     config = function()
-    --         require('mini.files').setup()
-    --         vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Open MiniFiles" })
-    --     end
-    -- },
-    --
     'mfussenegger/nvim-jdtls',
 
     {
