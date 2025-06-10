@@ -200,8 +200,6 @@ local plugins = {
         cmd = 'StartupTime',
     },
 
-    -- 'rhysd/committia.vim',
-
     {
         'stevearc/oil.nvim',
         event = 'VeryLazy',
