@@ -1,8 +1,6 @@
 vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
-vim.g.loaded_netrw = true
-vim.g.loaded_netrwPlugin = true
 vim.keymap.set('', '<Space>', '') -- Disables default behavior of <space>
 
 require("plugins")
