@@ -200,15 +200,6 @@ local plugins = {
         cmd = 'StartupTime',
     },
 
-    {
-        'stevearc/oil.nvim',
-        event = 'VeryLazy',
-        config = function()
-            require("oil").setup()
-            vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open oil.nvim" })
-        end
-    },
-
     -- Git
     {
         'lewis6991/gitsigns.nvim',
