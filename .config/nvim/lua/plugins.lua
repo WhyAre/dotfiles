@@ -49,6 +49,31 @@ local plugins = {
         end
     },
 
+    {
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
+        config = function()
+
+            local npairs = require("nvim-autopairs")
+            npairs.setup {
+                disable_in_macro = true,
+                break_undo = false
+            }
+            local Rule = require("nvim-autopairs.rule")
+            local cond = require('nvim-autopairs.conds')
+
+            local rules = {
+                Rule("```", "```"),
+                -- Rule("$", "$", {"typst"}),
+                Rule("```.*$", "```"):only_cr():use_regex(true),
+                Rule('"""', '"""'):with_pair(cond.not_before_char('"', 3)),
+                Rule("'''", "'''"):with_pair(cond.not_before_char('"', 3)),
+            }
+
+            npairs.add_rules(rules)
+        end
+    },
+
     { 'godlygeek/tabular', event = 'VeryLazy' },
 
     -- Colour
