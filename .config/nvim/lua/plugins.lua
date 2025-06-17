@@ -441,6 +441,10 @@ local plugins = {
         "NMAC427/guess-indent.nvim",
         opts = {},
     },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {},
+    },
 }
 
 require("lazy").setup(plugins)
