@@ -435,6 +435,25 @@ local plugins = {
             bigfile = { enabled = true },
             quickfile = { enabled = true },
         },
+        keys = {
+            { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+            { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+            { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+            { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+            { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
+            { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+            { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
+            { "<leader>.", function() Snacks.explorer() end, desc = "File Explorer" },
+
+            -- LSP
+            { "<leader>ld", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+            { "<leader>lD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+            { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+            { "<c-]>", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+            { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+            { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+            { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+        },
     },
 }
 
