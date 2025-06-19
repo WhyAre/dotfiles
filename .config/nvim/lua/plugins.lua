@@ -52,13 +52,10 @@ local plugins = {
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
-        config = function()
-            local npairs = require("nvim-autopairs")
-            npairs.setup {
-                disable_in_macro = true,
-                break_undo = false
-            }
-        end
+        opts = {
+            disable_in_macro = true,
+            break_undo = false,
+        },
     },
 
     { 'godlygeek/tabular', event = 'VeryLazy' },
