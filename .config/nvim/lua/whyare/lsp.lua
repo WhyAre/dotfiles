@@ -21,24 +21,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('whyare-lsp-attach', { clear = true }),
     callback = function(args)
         vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = 'Code actions' })
-        vim.keymap.set("n", "<leader>ld", require "telescope.builtin".diagnostics, { desc = 'Diagnostics' })
         vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float, { desc = 'Diagnostics' })
         vim.keymap.set("n", "<leader>lf", function()
             require("conform").format({lsp_format="fallback"})
         end, { desc = 'Format' })
         vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = 'Rename' })
-        vim.keymap.set("n", '<c-]>', require "telescope.builtin".lsp_definitions,
-            { desc = 'Go to definition' })
         vim.keymap.set("n", ']d', vim.diagnostic.goto_next, { desc = 'Next error' })
         vim.keymap.set("n", '[d', vim.diagnostic.goto_prev, { desc = 'Previous error' })
         -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'Open definition' })
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = 'Go to declaration' })
-        vim.keymap.set("n", "gI", require "telescope.builtin".lsp_implementations,
-            { desc = 'Go to implementation' })
-        vim.keymap.set("n", "gT", require "telescope.builtin".lsp_type_definitions,
-            { desc = 'Go to type definition' })
-        vim.keymap.set("n", "gd", require "telescope.builtin".lsp_definitions, { desc = 'Go to definition' })
-        vim.keymap.set("n", "gr", require "telescope.builtin".lsp_references, { desc = 'Go to references' })
 
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
