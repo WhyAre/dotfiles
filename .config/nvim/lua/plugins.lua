@@ -421,9 +421,20 @@ local plugins = {
         "NMAC427/guess-indent.nvim",
         opts = {},
     },
+
     {
         "sphamba/smear-cursor.nvim",
         opts = {},
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            bigfile = { enabled = true },
+            quickfile = { enabled = true },
+        },
     },
 }
 
