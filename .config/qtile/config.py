@@ -331,10 +331,15 @@ screens = [
                 widget.Sep(padding=sep_padding),
                 widget.KeyboardLayout(
                     foreground=primary_colour,
-                    configured_keyboards=["us colemak_dh_wide", "us"],
+                    configured_keyboards=[
+                        "us colemak_dh_ortho",
+                        "us colemak_dh_wide",
+                        "us",
+                    ],
                     display_map={
                         "us": "Qwerty",
-                        "us colemak_dh_wide": "Colemak",
+                        "us colemak_dh_wide": "Colemak DH Wide",
+                        "us colemak_dh_ortho": "Colemak DH Ortho",
                     },
                 ),
                 widget.Sep(padding=sep_padding),
