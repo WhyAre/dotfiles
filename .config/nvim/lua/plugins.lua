@@ -56,6 +56,26 @@ local plugins = {
             disable_in_macro = true,
             break_undo = false,
         },
+        config = function(_, opts)
+            -- Setup
+            local npairs = require("nvim-autopairs")
+            npairs.setup(opts)
+
+            -- Rules
+            local Rule = require("nvim-autopairs.rule")
+            local cond = require('nvim-autopairs.conds')
+
+            local rules = {
+                -- Auto close triple quotes regardless of filetype
+                -- Ref: https://github.com/windwp/nvim-autopairs/blob/2647cce4cb64fb35c212146663384e05ae126bdf/lua/nvim-autopairs/rules/basic.lua#L44-L48
+                Rule("```", "```"):with_pair(cond.not_before_char('`', 3)),
+                Rule("```.*$", "```"):only_cr():use_regex(true),  -- Handles fenced code blocks with optional language tag (e.g., ```python).
+                Rule('"""', '"""'):with_pair(cond.not_before_char('"', 3)),
+                Rule("'''", "'''"):with_pair(cond.not_before_char("'", 3)),
+            }
+
+            npairs.add_rules(rules)
+        end
     },
 
     { 'godlygeek/tabular', event = 'VeryLazy' },
