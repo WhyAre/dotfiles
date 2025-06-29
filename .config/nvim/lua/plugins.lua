@@ -435,7 +435,11 @@ local plugins = {
         lazy = false,
         opts = {
             bigfile = { enabled = true },
-            quickfile = { enabled = true },
+            quickfile = {
+                enabled = false,
+                exclude = { "lua", "vim", "vimdoc", "markdown",
+                    "markdown_inline", "c", "cpp", "python", "rust" }
+            },
         },
         keys = {
             { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
