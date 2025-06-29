@@ -25,12 +25,24 @@ function TokyoNightHighlights()
     vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
 end
 
+function GithubLightHighlights()
+    vim.cmd('highlight @markup.raw cterm=NONE gui=NONE')
+end
+
 local mycolour = vim.api.nvim_create_augroup('MyColours', { clear = true })
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = '*',
     group = mycolour,
     callback = function()
         GenericHighlights()
+    end
+})
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'github_light_colorblind',
+    group = mycolour,
+    callback = function()
+        GithubLightHighlights()
     end
 })
 
