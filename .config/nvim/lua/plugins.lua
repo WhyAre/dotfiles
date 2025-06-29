@@ -66,6 +66,9 @@ local plugins = {
             local cond = require('nvim-autopairs.conds')
 
             local rules = {
+                Rule("$", "$", {"typst"})
+                    :with_pair(cond.not_before_text('\\')),
+
                 -- Auto close triple quotes regardless of filetype
                 -- Ref: https://github.com/windwp/nvim-autopairs/blob/2647cce4cb64fb35c212146663384e05ae126bdf/lua/nvim-autopairs/rules/basic.lua#L44-L48
                 Rule("```", "```"):with_pair(cond.not_before_char('`', 3)),
