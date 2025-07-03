@@ -46,6 +46,7 @@ vim.opt.undofile = true
 -- Readability
 vim.opt.wrap = false
 vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 8
 vim.opt.cursorline = true
 vim.opt.textwidth = 0
 vim.opt.colorcolumn = "81"
