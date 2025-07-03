@@ -19,6 +19,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0   -- "When zero the 'tabstop' value will be used."
 vim.opt.softtabstop = -1 -- "When 'sts' is negative, the value of 'shiftwidth' is used."
 vim.opt.smarttab = false
+vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
