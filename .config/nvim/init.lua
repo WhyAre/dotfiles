@@ -15,12 +15,12 @@ vim.opt.mouse = 'a'
 vim.opt.ruler = false
 
 -- Tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 0   -- "When zero the 'tabstop' value will be used."
-vim.opt.softtabstop = -1 -- "When 'sts' is negative, the value of 'shiftwidth' is used."
-vim.opt.smarttab = false  -- I have no idea what this does, that's why I disabled it
+vim.opt.tabstop = 8       -- The default is already 8, but I'll just explicitly set it here
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = -1  -- "When 'sts' is negative, the value of 'shiftwidth' is used."
+vim.opt.smarttab = false  -- I want to actually understand how the tab works
 vim.opt.shiftround = true
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.autoindent = true
 
 -- Search
