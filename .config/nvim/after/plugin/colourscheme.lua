@@ -8,6 +8,7 @@ function GenericHighlights()
     if vim.o.background == 'light' then
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000" })
         vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#000000" })
+        vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#000000" })
     else
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff" })
         vim.api.nvim_set_hl(0, "Comment", { fg = "#abb3cc" })
