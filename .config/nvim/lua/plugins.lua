@@ -382,7 +382,7 @@ local plugins = {
         workspaces = {
           {
             name = "yes",
-            path = "~/obsidian/tldr/",
+            path = "~/vaults/tldr/",
           },
         },
       },
