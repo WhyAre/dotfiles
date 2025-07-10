@@ -12,6 +12,7 @@ vim.opt.errorbells = false
 vim.opt.wildmenu = true
 vim.opt.path:append("**") -- From: https://youtu.be/XA2WjJbmmoM?t=409
 vim.opt.mouse = 'a'
+vim.opt.guicursor = ''
 vim.opt.ruler = false
 
 -- Tabs
