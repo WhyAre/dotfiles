@@ -2,9 +2,6 @@ vim.opt.background = 'light'
 local colorscheme = 'github_light_colorblind'
 
 function GenericHighlights()
-    vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#ffffff", bg = "#a61616" })
-
-
     if vim.o.background == 'light' then
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000" })
         vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#000000" })
