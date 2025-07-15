@@ -4,8 +4,6 @@ local colorscheme = 'github_light_colorblind'
 function GenericHighlights()
     if vim.o.background == 'light' then
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000" })
-        vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#000000" })
-        vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#000000" })
     else
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff" })
         vim.api.nvim_set_hl(0, "Comment", { fg = "#abb3cc" })
@@ -25,6 +23,9 @@ end
 
 function GithubLightHighlights()
     vim.cmd('highlight @markup.raw cterm=NONE gui=NONE')
+    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "Special", { fg = "#0550ae", bold = true })
 end
 
 local mycolour = vim.api.nvim_create_augroup('MyColours', { clear = true })
