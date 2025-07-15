@@ -31,11 +31,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", '[d', vim.diagnostic.goto_prev, { desc = 'Previous error' })
         -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'Open definition' })
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = 'Go to declaration' })
+        vim.keymap.set("n", "<leader>lh", function()
+            local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+            vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
+        end, { desc = 'Toggle inlay hints' })
 
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         -- if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })  -- Enabled all the time whether the lsp supports or not (thx jdtls)
+        vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })  -- Enabled all the time whether the lsp supports or not (thx jdtls)
         -- end
     end
 })
