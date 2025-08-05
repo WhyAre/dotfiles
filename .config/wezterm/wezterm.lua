@@ -10,7 +10,7 @@ function getOS()
 end
 
 local config = {
-    font_size = 11.0,
+    font_size = 12.0,
     hide_tab_bar_if_only_one_tab = true,
     use_fancy_tab_bar = false,
     window_padding = {
@@ -21,7 +21,8 @@ local config = {
     },
     font = wezterm.font_with_fallback {
         'MonoLisa',
-        'JetBrains Mono',
+        'Codelia',
+        '0xProto NL',
         'DejavuSans Mono',
     },
     force_reverse_video_cursor = true,
@@ -47,7 +48,13 @@ local config = {
 -- instead of to the config file (not explicitly mentioned).
 -- Requiring local lua file is more consistent
 
-local colours = require 'one_light'
+local colours = {};
+if os.getenv("ASCIINEMA") == "1" then
+    colours = require 'kali_dark'
+else
+    colours = require 'one_light'
+end
+
 for k,v in pairs(colours) do config[k] = v end
 
 if getOS() == "windows" then
