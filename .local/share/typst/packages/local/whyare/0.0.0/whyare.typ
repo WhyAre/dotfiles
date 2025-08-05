@@ -1,7 +1,12 @@
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/zebraw:0.5.5": *
 
-// Clues
+// For usage in math mode
+#let raw1(content) = raw(content)
+#let text1(content) = text(font: "DM Sans", content)
+#let zebraw = zebraw.with(lang: false, indentation: 4, numbering: false)
+
+// Boxes
 #let section-box(title: [Title], color: black, content) = box(inset: (left: 0.25em), showybox(
   title: title,
   title-style: (
@@ -26,34 +31,46 @@
     sep-thickness: 0pt,
   ),
   frame: (
-    body-color: color.lighten(95%),
+    body-color: white,
     border-color: color,
     thickness: (left: 2pt),
     radius: 0pt,
   ),
-  [#text(strong(title)) #h(1em) #content],
+  [#text(fill: color, strong(title)) #h(1em) #content],
+)
+
+#let note(content) = admonition(
+  title: [#emoji.book.blue Note],
+  color: rgb("#015ccd"),
+  content,
 )
 
 #let tip(content) = admonition(
-  title: [#emoji.lightbulb Tip],
-  color: yellow,
+  title: [#emoji.sparkles Tip],
+  color: rgb("#10712b"),
   content,
 )
-
 
 #let danger(content) = admonition(
-  title: [#emoji.excl Danger],
-  color: red,
+  title: [#emoji.sign.stop Danger],
+  color: rgb("#c01722"),
   content,
 )
 
+#let warning(content) = admonition(
+  title: [#emoji.warning Warning],
+  color: rgb("#915f00"),
+  content,
+)
+
+#let impt(content) = admonition(
+  title: [#emoji.excl Important],
+  color: rgb("#7544d1"),
+  content,
+)
 
 #let notes-template(content) = {
   set page(margin: 1in)
-
-  // For usage in math mode
-  let raw1(content) = raw(content)
-  let text1(content) = text(font: "DM Sans", content)
 
   // Justify Text
   set par(justify: true)
@@ -68,7 +85,6 @@
     outset: (y: 3pt),
   )
 
-  let zebraw = zebraw.with(lang: false, indentation: 4, numbering: false)
   set heading(numbering: "1.1  ")
 
   // Font
