@@ -14,6 +14,9 @@ vim.diagnostic.config({
         border = _border,
     },
     virtual_text = true,
+    -- virtual_lines = {
+    --     current_line = true,
+    -- },
 })
 
 vim.keymap.set("n", "<leader>li", '<cmd>LspInfo<CR>', { desc = "LSP Info" })
