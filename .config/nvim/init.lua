@@ -21,7 +21,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1  -- "When 'sts' is negative, the value of 'shiftwidth' is used."
 vim.opt.smarttab = false  -- I want to actually understand how the tab works
 vim.opt.shiftround = true
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- Indentations
 vim.opt.smartindent = true
