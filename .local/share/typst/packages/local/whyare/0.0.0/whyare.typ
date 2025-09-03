@@ -1,9 +1,10 @@
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/zebraw:0.5.5": *
 
-// For usage in math mode
-#let raw1(content) = raw(content)
-#let text1(content) = text(font: "DM Sans", content)
+// Hack: expose these functions in math
+#let raw1(content) = text(font: "Monolisa", math.mono(content))
+#let text1 = text.with(font: "Atkinson Hyperlegible Next")
+
 #let zebraw = zebraw.with(lang: false, indentation: 4, numbering: false)
 
 // Boxes
@@ -88,8 +89,8 @@
   set heading(numbering: "1.1  ")
 
   // Font
-  set text(font: ("New Computer Modern Sans", "New Computer Modern"))
-  show math.equation: set text(font: ("Lete Sans Math", "New Computer Modern Math"))
+  set text(font: ("GFS Neohellenic", "New Computer Modern Sans", "New Computer Modern"), size: 13pt)
+  show math.equation: set text(font: ("GFS Neohellenic", "Lete Sans Math", "New Computer Modern Math"))
   show raw: set text(font: ("0xProto NL", "DejaVu Sans Mono"))
 
   content
