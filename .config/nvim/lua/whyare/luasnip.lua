@@ -12,11 +12,11 @@ vim.keymap.set("s", "<c-j>", function()
     end
 end, { desc = "ls.jump(1)" })
 
-vim.keymap.set({ "i", "s" }, "<c-k>", function()
-    if ls.jumpable(-1) then
-        ls.jump(-1)
-    end
-end, { desc = "ls.jump(-1)" })
+-- vim.keymap.set({ "i", "s" }, "<c-k>", function()
+--     if ls.jumpable(-1) then
+--         ls.jump(-1)
+--     end
+-- end, { desc = "ls.jump(-1)" })
 
 vim.keymap.set({ "i", "s" }, "<c-l>", function()
     if ls.choice_active() then
