@@ -27,7 +27,7 @@ function TokyoNightHighlights()
 end
 
 function GithubLightHighlights()
-    vim.cmd('highlight @markup.raw cterm=NONE gui=NONE')
+    -- vim.cmd('highlight @markup.raw cterm=NONE gui=NONE')
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#000000" })
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#000000" })
     vim.api.nvim_set_hl(0, "Special", { fg = "#0550ae", bold = true })
