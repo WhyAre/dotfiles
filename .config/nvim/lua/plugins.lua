@@ -160,11 +160,17 @@ local plugins = {
             'nvim-treesitter/nvim-treesitter-context',
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
+        branch = "master",
         event = "VeryLazy",
         build = ":TSUpdate",
         config = function()
             require('whyare.treesitter')
         end,
+    },
+
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        branch = "master"
     },
 
     -- Autocompletion
