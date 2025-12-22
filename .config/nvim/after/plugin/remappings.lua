@@ -18,9 +18,9 @@ vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "bnext" })
 vim.keymap.set("n", "[b", "<cmd>bprev<CR>", { desc = "bprev" })
 vim.keymap.set("n", "]c", "<cmd>cnext<CR>", { desc = "cnext" })
 vim.keymap.set("n", "[c", "<cmd>cprev<CR>", { desc = "cprev" })
-vim.keymap.set("n", "<c-j>", "<cmd>cnext<CR>", { desc = "cnext" })
-vim.keymap.set("n", "<c-k>", "<cmd>cprev<CR>", { desc = "cprev" })
-vim.keymap.set("n", "<c-q>", "<cmd>cclose<CR>", { desc = "cclose" })
+-- vim.keymap.set("n", "<c-j>", "<cmd>cnext<CR>", { desc = "cnext" })
+-- vim.keymap.set("n", "<c-k>", "<cmd>cprev<CR>", { desc = "cprev" })
+-- vim.keymap.set("n", "<c-q>", "<cmd>cclose<CR>", { desc = "cclose" })
 
 -- Buffer management
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { desc = "Delete buffer" })
