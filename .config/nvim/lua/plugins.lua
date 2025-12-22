@@ -469,6 +469,16 @@ local plugins = {
     },
 
     {
+        'glepnir/template.nvim',
+        cmd = {'Template', 'TemProject'},
+        config = function()
+            require('template').setup({
+                temp_dir = "~/.config/nvim/templates"
+            })
+        end
+    },
+
+    {
         'github/copilot.vim',
         init = function()
             vim.g.copilot_enabled = false
