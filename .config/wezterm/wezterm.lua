@@ -59,6 +59,8 @@ for k,v in pairs(colours) do config[k] = v end
 
 if getOS() == "windows" then
     config.default_prog = { 'pwsh', '-NoLogo' }
+else
+    config.default_prog = { 'fish' }
 end
 
 return config;
