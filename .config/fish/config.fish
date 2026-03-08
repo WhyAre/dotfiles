@@ -1,11 +1,11 @@
 # Everything is here, just open your eyes:
 # https://github.com/fish-shell/fish-shell
 
+set fish_greeting
 # [[ QoL things ]]
 if type -q bat
     alias cat="bat -p"
-    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
-    set -gx MANROFFOPT "-c"
+    set -gx  MANPAGER "sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 end
 
 set -l ls_flags  "--color=auto --classify --group-directories-first"
@@ -87,6 +87,13 @@ set -gx LESS "RX"
 fish_add_path -g ~/.bin
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/go/bin
+fish_add_path -g ~/.cargo/bin
+fish_add_path -g /usr/local/texlive/2025/bin/x86_64-linux
+fish_add_path -g ~/.elan/bin
+fish_add_path -g ~/.ghcup/bin
+fish_add_path -g ~/.cabal/bin
+fish_add_path -g ~/.local/share/coursier/bin
+fish_add_path -g ~/.local/share/JetBrains/Toolbox/scripts
 
 # Starship
 if type -q starship
@@ -100,6 +107,13 @@ end
 
 # Zoxide
 if type -q zoxide
-    zoxide init fish | source
-    alias cd=z
+    zoxide init --cmd cd fish | source
 end
+
+# Custom Keybindings
+bind ctrl-w backward-kill-bigword
+bind ctrl-x,ctrl-u undo
+bind ctrl-x,ctrl-e edit_command_buffer
+# bind ctrl-l scrollback-push
+
+
