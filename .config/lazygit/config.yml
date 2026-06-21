@@ -1,7 +1,17 @@
 gui:
-  enlargedSideViewLocation: top  # left
-  showFileTree: false
-  theme:  # catppuccin-latte (sapphire)
+  scrollOffMargin: 5
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 3
+  mainPanelSplitMode: vertical
+  timeFormat: Jan 02, 2006
+  showListFooter: false
+  showCommandLog: false
+  showBottomLine: false
+  showPanelJumps: false
+  showDivergenceFromBaseBranch: arrowAndNumber
+  mouseEvents: false
+  filterMode: fuzzy
+  theme: # catppuccin-latte (sapphire)
     activeBorderColor:
       - '#209fb5'
       - bold
@@ -21,6 +31,17 @@ gui:
       - '#4c4f69'
     searchingActiveBorderColor:
       - '#df8e1d'
-
   authorColors:
     '*': '#7287fd'
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+  commit:
+    autoWrapWidth: 72
+  skipHookPrefix: WIP
+  branchLogCmd: "git log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
+  allBranchesLogCmds:
+    - git log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+os:
+  editPreset: nvim
