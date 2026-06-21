@@ -86,6 +86,8 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
         "format": "{:%d-%b-%Y %I:%M %p}",
+        "format-alt": "{:%d-%b-%Y %I:%M:%S %p}",
+        "interval": 1,
         "actions": {
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
@@ -93,10 +95,12 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "interval": 1
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "interval": 1
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -123,19 +127,20 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "interval": 1
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{ifname}: {ipaddr}/{cidr}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{essid} ({signalStrength}%) "
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
