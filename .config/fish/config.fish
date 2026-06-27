@@ -2,6 +2,7 @@
 # https://github.com/fish-shell/fish-shell
 
 set fish_greeting
+
 # [[ QoL things ]]
 if type -q bat
     alias cat="bat -p"
@@ -94,6 +95,8 @@ fish_add_path -g ~/.ghcup/bin
 fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.local/share/coursier/bin
 fish_add_path -g ~/.local/share/JetBrains/Toolbox/scripts
+fish_add_path -g /opt/kotlinc/bin
+fish_add_path -g ~/.local/share/pnpm/bin
 
 # Starship
 if type -q starship
@@ -114,6 +117,7 @@ end
 bind ctrl-w backward-kill-bigword
 bind ctrl-x,ctrl-u undo
 bind ctrl-x,ctrl-e edit_command_buffer
+bind alt-backspace backward-kill-word
 # bind ctrl-l scrollback-push
 
 
