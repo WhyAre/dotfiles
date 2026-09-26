@@ -85,7 +85,21 @@ local plugins = {
 
     -- Colour
     'Tsuzat/NeoSolarized.nvim',
-    'projekt0n/github-nvim-theme',
+    {
+        'projekt0n/github-nvim-theme',
+        config = function()
+            require('github-theme').setup({
+                options = {
+                    styles = {
+                    comments = 'NONE',
+                    keywords = 'NONE',
+                    functions = 'NONE',
+                    variables = 'NONE',
+                    },
+                },
+            })
+        end
+    },
     'folke/tokyonight.nvim',
     { "catppuccin/nvim", name = "catppuccin" },
     'bluz71/vim-nightfly-colors',
@@ -140,7 +154,7 @@ local plugins = {
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    python = { "isort", "black" },
+                    -- python = { "isort", "black" },
                     typescript = { "prettier" },
                     typescriptreact = { "prettier" },
                 },
@@ -408,7 +422,7 @@ local plugins = {
         workspaces = {
           {
             name = "yes",
-            path = "~/vaults/tldr/",
+            path = "~/vaults/notes/",
           },
         },
       },
