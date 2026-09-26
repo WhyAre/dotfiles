@@ -7,9 +7,8 @@ gui:
   showListFooter: false
   showCommandLog: false
   showBottomLine: false
-  showPanelJumps: false
+  showPanelJumps: true
   showDivergenceFromBaseBranch: arrowAndNumber
-  mouseEvents: false
   filterMode: fuzzy
   theme: # catppuccin-latte (sapphire)
     activeBorderColor:
