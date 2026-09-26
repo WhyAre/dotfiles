@@ -13,6 +13,26 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("flatpak run org.telegram.desktop")
 end)
 
+local wallpaperDir = os.getenv("HOME") .. "/Pictures/wallpapers"
+local IMAGE_EXTS = { png = true, jpg = true, jpeg = true, webp = true }
+
+local wallpapers = {}
+local listing = io.popen('ls -1 "' .. wallpaperDir .. '"')
+if listing then
+  for name in listing:lines() do
+    local ext = name:match("%.(%w+)$")
+    if ext and IMAGE_EXTS[ext:lower()] then wallpapers[#wallpapers + 1] = name end
+  end
+  listing:close()
+end
+
+if #wallpapers > 0 then
+  math.randomseed(os.time())
+  local pick = wallpapers[math.random(#wallpapers)]
+  hl.exec_cmd(("sh -c 'old=$(pgrep -x swaybg); swaybg -m fill -i \"%s/%s\" & "
+    .. "sleep 1; [ -n \"$old\" ] && kill $old'"):format(wallpaperDir, pick))
+end
+
 hl.config({
   input = {
     kb_layout = "us",
