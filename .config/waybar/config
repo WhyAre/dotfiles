@@ -5,10 +5,29 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["hyprland/workspaces", "hyprland/workspaces#windows", "hyprland/submap", "custom/media"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "backlight", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
     // Modules configuration
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "show-special": true,
+        "format-icons": {
+            "messages": "t",
+            "special:messages": "t"
+        }
+    },
+    "hyprland/workspaces#windows": {
+        "active-only": true,
+        "format": "{windows}",
+        "workspace-taskbar": {
+            "enable": true,
+            "update-active-window": true,
+            "format": "{icon}",
+            "icon-size": 16,
+            "on-click-window": "hyprctl dispatch focuswindow address:{address}"
+        }
+    },
     // "sway/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
