@@ -25,7 +25,7 @@
             "update-active-window": true,
             "format": "{icon}",
             "icon-size": 16,
-            "on-click-window": "hyprctl dispatch focuswindow address:{address}"
+            "on-click-window": "hyprctl dispatch 'hl.dsp.focus({ window = \"address:{address}\" })'"
         }
     },
     // "sway/workspaces": {
