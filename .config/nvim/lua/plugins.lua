@@ -35,7 +35,7 @@ local plugins = {
     },
 
     {
-        'norcalli/nvim-colorizer.lua',
+        'catgoose/nvim-colorizer.lua',
         config = function()
             require 'colorizer'.setup()
         end
@@ -87,18 +87,20 @@ local plugins = {
     'Tsuzat/NeoSolarized.nvim',
     {
         'projekt0n/github-nvim-theme',
-        config = function()
-            require('github-theme').setup({
-                options = {
-                    styles = {
+        main = 'github-theme',
+        opts = {
+            options = {
+                -- stdpath('cache') lives in the Windows temp dir, which gets wiped,
+                -- deleting the compiled themes while leaving the hash file behind.
+                compile_path = vim.fs.joinpath(vim.fn.stdpath('data'), 'github-theme'),
+                styles = {
                     comments = 'NONE',
                     keywords = 'NONE',
                     functions = 'NONE',
                     variables = 'NONE',
-                    },
                 },
-            })
-        end
+            },
+        },
     },
     'folke/tokyonight.nvim',
     { "catppuccin/nvim", name = "catppuccin" },
@@ -512,19 +514,19 @@ local plugins = {
         end
     },
 
-    {
-        'github/copilot.vim',
-        init = function()
-            vim.g.copilot_enabled = false
-        end,
-        config = function()
-            vim.keymap.set('i', '<M-y>', 'copilot#Accept("\\<CR>")', {
-                expr = true,
-                replace_keycodes = false
-            })
-            vim.g.copilot_no_tab_map = true
-        end
-    },
+    -- {
+    --     'github/copilot.vim',
+    --     init = function()
+    --         vim.g.copilot_enabled = false
+    --     end,
+    --     config = function()
+    --         vim.keymap.set('i', '<M-y>', 'copilot#Accept("\\<CR>")', {
+    --             expr = true,
+    --             replace_keycodes = false
+    --         })
+    --         vim.g.copilot_no_tab_map = true
+    --     end
+    -- },
 }
 
 require("lazy").setup(plugins)
