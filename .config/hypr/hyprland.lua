@@ -43,12 +43,12 @@ hl.config({
     touchpad = { tap_to_click = true },
   },
   general = {
-    border_size = 2,
+    border_size = 0,
     gaps_in = 0,
     gaps_out = 0,
     layout = "monocle",
     col = {
-      active_border = "rgb(b4befe)",
+      active_border = "rgb(fab387)",
       inactive_border = "rgb(313244)",
     },
   },
@@ -61,11 +61,6 @@ hl.window_rule({ match = { class = "^(vivaldi-stable)$" }, workspace = "1 silent
 hl.window_rule({ match = { class = "^(Todoist)$" }, workspace = "4 silent" })
 hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, workspace = "name:messages silent" })
 hl.window_rule({ match = { class = "^(discord)$" }, workspace = "name:messages silent" })
-hl.window_rule({
-  name = "no-border-when-only",
-  match = { float = false, workspace = "w[tv1]" },
-  border_size = 0,
-})
 
 -- Basics
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -89,7 +84,9 @@ local function setLayout(layout)
     local ws = activeWorkspace()
     if not ws then return end
     local target = ws.special and tostring(ws.name) or "name:" .. tostring(ws.name)
-    hl.workspace_rule({ workspace = target, layout = layout })
+    local borderSize = layout == "monocle" and 0 or 3
+    hl.workspace_rule({ workspace = target, layout = layout, border_size = borderSize })
+    hl.exec_scheduled_prop_refresh_immediately()
   end
 end
 
