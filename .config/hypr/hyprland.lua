@@ -26,12 +26,16 @@ if listing then
   listing:close()
 end
 
-if #wallpapers > 0 then
+local function setWallpaper()
+  if #wallpapers == 0 then return end
   math.randomseed(os.time())
   local pick = wallpapers[math.random(#wallpapers)]
   hl.exec_cmd(("sh -c 'old=$(pgrep -x swaybg); swaybg -m fill -i \"%s/%s\" & "
     .. "sleep 1; [ -n \"$old\" ] && kill $old'"):format(wallpaperDir, pick))
 end
+
+hl.on("hyprland.start", setWallpaper)
+setWallpaper()
 
 hl.config({
   input = {
@@ -43,6 +47,10 @@ hl.config({
     gaps_in = 0,
     gaps_out = 0,
     layout = "monocle",
+    col = {
+      active_border = "rgb(b4befe)",
+      inactive_border = "rgb(313244)",
+    },
   },
   dwindle = { force_split = 2 },
   animations = { enabled = false },
@@ -53,6 +61,11 @@ hl.window_rule({ match = { class = "^(vivaldi-stable)$" }, workspace = "1 silent
 hl.window_rule({ match = { class = "^(Todoist)$" }, workspace = "4 silent" })
 hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, workspace = "name:messages silent" })
 hl.window_rule({ match = { class = "^(discord)$" }, workspace = "name:messages silent" })
+hl.window_rule({
+  name = "no-border-when-only",
+  match = { float = false, workspace = "w[tv1]" },
+  border_size = 0,
+})
 
 -- Basics
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
