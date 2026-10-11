@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: #11111b;
+    border-bottom: 3px solid #313244;
+    color: #e6ebfa;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -25,15 +25,6 @@ window#waybar.solo {
 }
 */
 
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
@@ -45,13 +36,13 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #cdd6f4;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #e6ebfa;
 }
 
 #workspaces button:hover {
@@ -59,17 +50,17 @@ button:hover {
 }
 
 #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #313244;
+    box-shadow: inset 0 -3px #cdd6f4;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #f38ba8;
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    background-color: #313244;
+    border-bottom: 3px solid #cdd6f4;
 }
 
 #clock,
@@ -89,7 +80,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #e6ebfa;
 }
 
 #window,
@@ -110,7 +101,7 @@ button:hover {
 #clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio,
 #custom-media, #tray, #language, #keyboard-state {
   background-color: transparent;
-  color: #ffffff;
+  color: #e6ebfa;
   padding: 0 10px;
 }
 #language { min-width: 20px; padding: 0 4px; }
@@ -144,6 +135,6 @@ button:hover {
 }
 
 #workspaces.windows .taskbar-window.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #313244;
+    box-shadow: inset 0 -3px #cdd6f4;
 }
