@@ -6,7 +6,6 @@
     defaultBranch = main
 [core]
     compression = 9
-    whitespace = error  ; KIV
     editor = nvim
     preloadindex = true
     fscache = true
@@ -21,7 +20,6 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-
 ; Commands
 [branch]
     sort = -committerdate
@@ -36,8 +34,9 @@
 [merge]
     conflictstyle = zdiff3
 [pull]
-    default = upstream
+    rebase = true
     ff = only
+    autoStash = true
 [push]
     autoSetupRemote = true
     default = upstream
@@ -51,9 +50,10 @@
     enabled = true
 [status]
     relativePaths = false
+[stash]
+    showIncludeUntracked = true
 [tag]
     sort = -committerdate
-
 [alias]
     a = add
     ap = add --patch
@@ -85,3 +85,5 @@
     st = status --short --branch
     sti = st --ignored
     wt = worktree
+
+    
