@@ -2,7 +2,10 @@ local mainMod = "SUPER"
 local terminal = "wezterm"
 local menu = "rofi -show combi"
 
-hl.monitor({ output = "eDP-1", mode = "1280x720@60", position = "0x0", scale = 1 })
+hl.monitor({ output = "HDMI-A-2", mode = "2560x1440@60", position = "0x0", scale = 1.333333 })
+hl.monitor({ output = "eDP-1", mode = "1920x1080@60", position = "1920x0", scale = 1.5 })
+hl.workspace_rule({ workspace = "m[HDMI-A-2]", gaps_in = 0,
+  gaps_out = { top = 0, right = 0, bottom = 0, left = 0 } })
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
 hl.on("hyprland.start", function()
@@ -10,7 +13,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("mako")
   hl.exec_cmd("waybar")
   hl.exec_cmd("flatpak run com.discordapp.Discord")
-  hl.exec_cmd("flatpak run org.telegram.desktop")
+  hl.exec_cmd("flatpak run --env=QT_SCALE_FACTOR=1.333333 org.telegram.desktop")
 end)
 
 local wallpaperDir = os.getenv("HOME") .. "/Pictures/wallpapers"
@@ -116,6 +119,9 @@ for key, dir in pairs(DIRECTION_KEYS) do
   hl.bind(mainMod .. " + " .. key, focus(dir))
   hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }))
 end
+hl.bind(mainMod .. " + Tab", hl.dsp.focus({ last = true }))
+hl.bind(mainMod .. " + comma", hl.dsp.focus({ monitor = "-1" }))
+hl.bind(mainMod .. " + period", hl.dsp.focus({ monitor = "+1" }))
 
 -- Workspaces (xmonad-style: pull workspace to the focused monitor)
 for i = 1, 10 do
