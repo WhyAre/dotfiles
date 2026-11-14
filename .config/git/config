@@ -1,0 +1,89 @@
+[include]
+    path = user
+
+; General Config
+[init]
+    defaultBranch = main
+[core]
+    compression = 9
+    editor = nvim
+    preloadindex = true
+    fscache = true
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+; Commands
+[branch]
+    sort = -committerdate
+[commit]
+    verbose = 2
+[credential]
+    helper = store
+[diff]
+    colorMoved = default
+[fetch]
+    prune = true
+[merge]
+    conflictstyle = zdiff3
+[pull]
+    rebase = true
+    ff = only
+    autoStash = true
+[push]
+    autoSetupRemote = true
+    default = upstream
+    followTags = true ; KIV
+[rebase]
+    autosquash = true
+    updateRefs = true
+    autoStash = true ; KIV
+    missingCommitsCheck = warn ; KIV
+[rerere]
+    enabled = true
+[status]
+    relativePaths = false
+[stash]
+    showIncludeUntracked = true
+[tag]
+    sort = -committerdate
+[alias]
+    a = add
+    ap = add --patch
+    b = branch --verbose --verbose
+    ba = b --all
+    bd = branch --delete --force
+    c = commit
+    ca = commit --amend
+    cane = commit --amend --no-edit
+    co = checkout
+    cob = checkout -b
+    d = diff
+    ds = diff --staged
+    f = fetch --prune --all --tags --force
+    g = !git gui
+    jc = !git add -A && git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
+    l = log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    la = l --all
+    lf = l --pretty=fuller
+    lfa = lf --all
+    p = push
+    pl = pull
+    poh = push origin HEAD
+    r = remote --verbose
+    test = stash --include-untracked --keep-index
+    sm = submodule
+    smu = sm update --init --recursive
+    smur = smu --remote
+    st = status --short --branch
+    sti = st --ignored
+    wt = worktree
+
+    

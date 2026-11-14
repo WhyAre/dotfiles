@@ -1,0 +1,8 @@
+remote_read_timeout_secs: 300.0
+ssl_verify: false
+changeps1: false
+channels:
+  - conda-forge
+  - defaults
+channel_priority: strict
+experimental_solver: libmamba

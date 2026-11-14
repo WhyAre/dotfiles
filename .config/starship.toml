@@ -1,0 +1,16 @@
+[battery]
+disabled=true
+
+[directory]
+fish_style_pwd_dir_length = 1
+truncate_to_repo = false
+
+[git_branch]
+symbol = ""
+
+[localip]
+disabled = true
+ssh_only = false
+
+[time]
+disabled = true

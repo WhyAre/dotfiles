@@ -1,0 +1,17 @@
+#!/bin/sh
+# This script fixes "Git: 'Corrupt loose object'" issue
+
+filename=$(basename "$0")
+if [ $# -eq 0 ]
+then
+    printf "URL: "
+    read url
+else
+    url="$1"
+fi
+rm -fr .git
+git init
+git remote add origin "$url"
+git fetch
+git reset --mixed origin/main
+git branch --set-upstream-to=origin/main main  

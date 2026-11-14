@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Check that git is installed
+git add .;
+if [ -n "gpg --list-secret-keys" ]; then
+    git commit -S -m "$(date)"
+else
+    git commit -m "$(date)"
+fi
+git push origin main;

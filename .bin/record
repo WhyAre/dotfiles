@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -o errexit -o nounset
+
+export ASCIINEMA=1
+cmd="typyr --log-level=debug \"$1\""
+shift
+kitty -- asciinema rec --window-size 100x24 -c "$cmd" "$@" --overwrite arst.cast

@@ -1,0 +1,13 @@
+[
+  {
+    "output": "HDMI-A-2",
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "include": ["~/.config/waybar/base.jsonc"]
+  },
+  {
+    "output": "!HDMI-A-2",
+    "include": ["~/.config/waybar/base.jsonc"]
+  }
+]

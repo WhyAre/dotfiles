@@ -1,0 +1,46 @@
+gui:
+  scrollOffMargin: 5
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 3
+  mainPanelSplitMode: vertical
+  timeFormat: Jan 02, 2006
+  showListFooter: false
+  showCommandLog: false
+  showBottomLine: false
+  showPanelJumps: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+  filterMode: fuzzy
+  theme: # catppuccin-latte (sapphire)
+    activeBorderColor:
+      - '#209fb5'
+      - bold
+    inactiveBorderColor:
+      - '#6c6f85'
+    optionsTextColor:
+      - '#1e66f5'
+    selectedLineBgColor:
+      - '#ccd0da'
+    cherryPickedCommitBgColor:
+      - '#bcc0cc'
+    cherryPickedCommitFgColor:
+      - '#209fb5'
+    unstagedChangesColor:
+      - '#d20f39'
+    defaultFgColor:
+      - '#4c4f69'
+    searchingActiveBorderColor:
+      - '#df8e1d'
+  authorColors:
+    '*': '#7287fd'
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+  commit:
+    autoWrapWidth: 72
+  skipHookPrefix: WIP
+  branchLogCmd: "git log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
+  allBranchesLogCmds:
+    - git log --color=always --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+os:
+  editPreset: nvim

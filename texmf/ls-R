@@ -1,0 +1,15 @@
+% ls-R -- filename database for kpathsea; do not change this line.
+
+./:
+.:
+tex
+
+./tex:
+latex
+
+./tex/latex:
+local
+
+./tex/latex/local:
+whyare.sty
+
